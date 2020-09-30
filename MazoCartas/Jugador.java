@@ -1,7 +1,7 @@
+package MazoCartas;
 
 public class Jugador {
-	
-	private String nombre;
+private String nombre;
 	
 	/*private ArrayList <Carta> cartas
 	 * agrego las cartas a el jugador */

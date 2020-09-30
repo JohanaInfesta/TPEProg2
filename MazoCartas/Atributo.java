@@ -1,11 +1,10 @@
+package MazoCartas;
 
-public class Atributos {
-	/*Todos los atributos tienen un nombre y un valor numérico */
-	
+public class Atributo {
 	private String nombre;
 	private double valor;
 	
-	public Atributos(String nombre, double valor){
+	public Atributo(String nombre, double valor){
 		this.nombre = nombre;
 		this.valor = valor;
 	}

@@ -1,10 +1,10 @@
+package MazoCartas;
+
 import java.util.ArrayList;
 
-
 public class Carta {
-	
 	private String nombre;
-	private ArrayList <Atributos> atributos;
+	private ArrayList <Atributo> atributos;
 	
 	public Carta(String nombre){
 		this.nombre = nombre;
@@ -17,11 +17,12 @@ public class Carta {
 	
 	public void addAtributos(String nombre, double valor){
 		if(!tieneAtributo(nombre)){
-			this.atributos.add(new Atributos(nombre, valor));
+			this.atributos.add(new Atributo(nombre, valor));
 		}
+		/*hay una carta que no pertenece al mazo en el json y hay que comprobar que no se agrege*/ 
 	}
 	
-	public Atributos getAtributos (String nombre){
+	public Atributo getAtributos (String nombre){
 		for(int i = 0; i < atributos.size(); i++){
 			if(atributos.get(i).getNombre().equals(nombre)){
 				return atributos.get(i);
@@ -31,11 +32,11 @@ public class Carta {
 	}
 	
 	public boolean tieneAtributo(String nombre){
-		Atributos at = this.getAtributos(nombre);
+		Atributo at = this.getAtributos(nombre);
 		return (at != null);
 	}
 	
-	public boolean tieneAtributo (Atributos at){
+	public boolean tieneAtributo (Atributo at){
 		return atributos.contains(at);
 	}
 		
