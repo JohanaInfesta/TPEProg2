@@ -16,9 +16,12 @@ public class Jugador {
 	public String getNombre(){
 		return nombre;
 	}
-//	public Atributo elegirAtributo(){
-//		
-//	}
+	public String elegirAtributo(){
+		if(cartas.getMazoCompleto() > 0) {
+			int randomAttribute = (int) Math.random() * cartas.getMazoCompleto();
+			return cartas.getPrimerCarta().getAtributos(nombre);// corregir: pedir lista de atributos, y usar randomAttribute
+		}
+	}
 	public void gana(){
 		
 	}
