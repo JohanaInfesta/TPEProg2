@@ -21,6 +21,18 @@ public class Carta {
 		}
 		/*hay una carta que no pertenece al mazo en el json y hay que comprobar que no se agrege*/ 
 	}
+	
+	public Atributo getAtributo(String nombreAtributo) {
+		Atributo atributo;
+		for(int i = 0; i < atributos.size(); i++) {
+			if(atributos.get(i).getNombre() == nombreAtributo) {
+				atributo = atributos.get(i);
+				i = atributos.size() + 1; //para que no siga recorriendo despues de encontrar el atributo
+			}
+		
+		}
+		return atributo;//resolver error
+	}
 
 	public Atributo getAtributos (String nombre){
 		for(int i = 0; i < atributos.size(); i++){
