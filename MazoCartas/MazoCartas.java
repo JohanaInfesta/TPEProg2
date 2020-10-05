@@ -26,10 +26,6 @@ public class MazoCartas {
 		return cartas.remove(0); //elimina la primera carta del mazo
 	}
 
-	public void eliminarCarta(Carta cartaPerdedora){
-
-	}
-
 	public void repartirCarta(Jugador jugadorA, Jugador jugadorB){
 		Collections.shuffle(cartas); // mezcla las cartas del mazo
 		while(!cartas.isEmpty()){
@@ -41,6 +37,12 @@ public class MazoCartas {
 
 	}
 
+
+	public void eliminarCarta(Carta cartaPerdedora){
+
+	}
+
+	
 	public int getMazoCompleto(){
 		return cartas.size();
 	}
