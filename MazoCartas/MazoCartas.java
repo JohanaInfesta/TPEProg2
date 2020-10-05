@@ -5,11 +5,11 @@ import java.util.Collections;
 
 public class MazoCartas {
 	private ArrayList <Carta> cartas;
-	
+
 	public MazoCartas(){
 		cartas = new ArrayList <>();
 	}
-	
+
 	public void addCarta(Carta c){
 		if(cartas.isEmpty())
 			cartas.add(c);
@@ -22,29 +22,40 @@ public class MazoCartas {
 		Carta primera = cartas.get(0);
 		return primera.comparar(c);
 	}
+	public Carta darCarta(){
+		return cartas.remove(0); //elimina la primera carta del mazo
+	}
 
-	
 	public void eliminarCarta(Carta cartaPerdedora){
-		
+
 	}
-	
+
 	public void repartirCarta(Jugador jugadorA, Jugador jugadorB){
-		Collections.shuffle(cartas);
-//		while(!cartas.isEmpty()){
-//			jugadorA.agarrarCarta();
-//			if(cartas.isEmpty()){
-//				jugadorB.agarrarCarta();
-//			}
-//		}
-		
-		//jugador b = darCarta()
+		Collections.shuffle(cartas); // mezcla las cartas del mazo
+		while(!cartas.isEmpty()){
+			jugadorA.agarrarCarta(this.darCarta()); // cuando da la primera carta se elimina automaticamente dek mazo con el metodo darCarta
+			if(cartas.isEmpty()){
+				jugadorB.agarrarCarta(this.darCarta());
+			}
+		}
+
 	}
-	
+
 	public int getMazoCompleto(){
 		return cartas.size();
 	}
-	
+
 	public String toString(){
 		return cartas.toString();
+	}
+
+	public boolean esVacio(){//lo puse porque sino no puedo preguntar si el mazo en la clase jugador
+		return cartas.isEmpty();//es vacio o no
+	}
+	public Carta getPrimeraCarta(){
+		if(!cartas.isEmpty()){
+			return cartas.get(0);
+		}
+		return null;
 	}
 }

@@ -27,5 +27,6 @@ public class MainJuego {
 		
 		Jugador j1 = new Jugador ("PEPITO");
 		
+		
 	}
 }

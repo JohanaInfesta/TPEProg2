@@ -9,6 +9,14 @@ public class Atributo {
 		this.valor = valor;
 	}
 
+	public boolean ganador(Atributo atValor){
+		return this.valor > atValor.getValor();
+	}
+	
+	public boolean empate(Atributo atValor){
+		return this.valor == atValor.getValor();
+	}
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -17,6 +25,15 @@ public class Atributo {
 		return valor;
 	}
 
+	public boolean equals (Object obj){
+		try{
+			Atributo aux = (Atributo)obj;
+			return this.getNombre().equals(aux.getNombre());
+		}catch(Exception e){
+			return false;
+		}
+	}
+	
 	public String toString(){
 		return this.getNombre()+": "+this.getValor();
 	}
