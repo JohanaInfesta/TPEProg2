@@ -6,8 +6,6 @@ public class Jugador {
 	private boolean esGanador;
 
 
-	/* jugar Carta */
-
 	public Jugador(String nombre){
 		this.nombre = nombre;
 		this.esGanador = false;
@@ -28,22 +26,13 @@ public class Jugador {
 		return null;
 	}
 
-//	public Atributo elegirAtributo(){
-//		if(cartas.getMazoCompleto() > 0) {
-//			int randomAttribute = (int) Math.random() * cartas.getMazoCompleto();
-//			return cartas.getPrimeraCarta().getAtributos(nombre);// corregir: pedir lista de atributos, y usar randomAttribute
-//		}
-//		return null;
-//	}
-	//no se muy bien como hay que hacer esta parte.. habria que consultar
-
 	public Atributo elegirAtributo(Carta carta){
 		int cantAtributos = carta.cantAtributos();
 		int atributoRandom = (int) (Math.random()*cantAtributos - 1 );
 		Atributo atributoElegido = carta.atributoPorPosicion(atributoRandom);
 		return atributoElegido;
 	}
-	
+
 	public void gana(){
 
 	}
@@ -52,6 +41,17 @@ public class Jugador {
 
 	}
 
+	public boolean esGanador(){
+		return esGanador;
+	}
+
+	public void setEsGanador(boolean esGanador){
+		this.esGanador = esGanador;
+	}
+	
+	public MazoCartas getCartas(){
+		return cartas;
+	}
 	public String toString(){
 		return this.getNombre();
 	}
