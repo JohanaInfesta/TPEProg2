@@ -46,6 +46,14 @@ public class Carta {
 		return (at != null);
 	}
 
+	public int cantAtributos(){
+		return atributos.size();//devuelve todos los atributos por carta
+	}
+	
+	public Atributo atributoPorPosicion(int atributoPosicion){
+		Atributo at = atributos.get(atributoPosicion); 
+		return at; //devuelve la posicion del atributo elegido
+	}
 //	public boolean tieneAtributo (Atributo at){
 //		return atributos.contains(at);
 //	} // tengo que implementar equals para usar este metodo
