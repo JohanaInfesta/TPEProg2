@@ -26,6 +26,16 @@ public class MainJuego {
 		System.out.println(M1);
 		
 		Jugador j1 = new Jugador ("PEPITO");
+		j1.agarrarCarta(c1);
+		j1.agarrarCarta(c2);
+		
+		//probando
+		Carta primerCarta = j1.getPrimeraCarta();
+		Atributo atributoElegido = j1.elegirAtributo(primerCarta);
+		String nombreAtributo = atributoElegido.getNombre();
+		int valorAtributo = atributoElegido.getValor();
+		
+		System.out.println(nombreAtributo + ":" + valorAtributo);//ejecutar varias veces
 		
 		
 	}
