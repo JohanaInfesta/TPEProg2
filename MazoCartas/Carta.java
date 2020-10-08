@@ -21,28 +21,24 @@ public class Carta {
 		}
 	}
 	
-//	public Atributo getAtributo(String nombreAtributo) {
-//		Atributo atributo = null;
-//		for(int i = 0; i < atributos.size(); i++) {
-//			if(atributos.get(i).getNombre().equals(nombreAtributo)) {
-//				atributo = atributos.get(i);
-//				i = atributos.size() + 1; //para que no siga recorriendo despues de encontrar el atributo
-//			}
-//		}
-//		return atributo;//tiene que estar inicializada si o si para que realice el return
-//	}
-
-	public Atributo getAtributos (String nombre){
-		for(int i = 0; i < atributos.size(); i++){
-			if(atributos.get(i).getNombre().equals(nombre)){
-				return atributos.get(i);
+	public Atributo getAtributo(String nombreAtributo) {
+		Atributo atributo = null;
+		for(int i = 0; i < atributos.size(); i++) {
+			if(atributos.get(i).getNombre().equals(nombreAtributo)) {
+				atributo = atributos.get(i);
+				i = atributos.size() + 1; //para que no siga recorriendo despues de encontrar el atributo
 			}
 		}
-		return null;
+		return atributo;//tiene que estar inicializada si o si para que realice el return
+	}
+
+	public ArrayList <Atributo> getAtributos (){
+		
+		return this.atributos;
 	}
 
 	public boolean tieneAtributo(String nombre){
-		Atributo at = this.getAtributos(nombre);
+		Atributo at = this.getAtributo(nombre);
 		return (at != null);
 	}
 
