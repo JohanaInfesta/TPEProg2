@@ -9,6 +9,7 @@ public class Jugador {
 	public Jugador(String nombre){
 		this.nombre = nombre;
 		this.esGanador = false;
+		this.cartas = new MazoCartas();
 	}
 
 	public String getNombre(){
@@ -21,14 +22,14 @@ public class Jugador {
 
 	public Carta getPrimeraCarta(){
 		if(!cartas.esVacio()){
-			cartas.getPrimeraCarta();
+			return cartas.getPrimeraCarta();
 		}
 		return null;
 	}
 
 	public Atributo elegirAtributo(Carta carta){
 		int cantAtributos = carta.cantAtributos();
-		int atributoRandom = (int) (Math.random()*cantAtributos - 1 );
+		int atributoRandom = (int) (Math.random()*cantAtributos );
 		Atributo atributoElegido = carta.atributoPorPosicion(atributoRandom);
 		return atributoElegido;
 	}
