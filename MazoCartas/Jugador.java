@@ -34,12 +34,14 @@ public class Jugador {
 		return atributoElegido;
 	}
 
-	public void gana(){
-
+	public void gana(Carta cartaPerdedora){
+		setEsGanador(true);
+		cartas.addCarta(cartaPerdedora);
 	}
 
-	public void pierde(){
-
+	public void pierde(Carta cartaPerdedora){
+		setEsGanador(false);
+		cartas.eliminarCarta(cartaPerdedora);
 	}
 
 	public boolean esGanador(){
@@ -52,6 +54,9 @@ public class Jugador {
 	
 	public MazoCartas getCartas(){
 		return cartas;
+	}
+	public int mazoCartas(){
+		return cartas.getMazoCompleto();
 	}
 	public String toString(){
 		return this.getNombre();
