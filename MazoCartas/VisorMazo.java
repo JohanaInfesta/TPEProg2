@@ -61,7 +61,7 @@ public class VisorMazo {
 					cartaNueva.agregarAtributo(nuevoAtributo);
 
 				}
-				mazo.agregarCarta(cartaNueva);
+				mazo.addCarta(cartaNueva);
 			}
 
 			reader.close();

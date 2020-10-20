@@ -6,22 +6,27 @@ import java.util.Collections;
 public class MazoCartas {
 	private ArrayList <Carta> cartas;
 
+	//CONSTRUCTOR
 	public MazoCartas(){
 		cartas = new ArrayList <>();
 	}
 
+	//METODOS
 	public void addCarta(Carta c){
 		if(cartas.isEmpty())
 			cartas.add(c);
-		else
+		else{
 			if(compararCartas(c)){
 				cartas.add(c);
 			}
+		}
 	}
+
 	public boolean compararCartas(Carta c){
 		Carta primera = cartas.get(0);
 		return primera.comparar(c);
 	}
+
 	public Carta darCarta(){
 		return cartas.remove(0); //elimina la primera carta del mazo
 	}
@@ -34,7 +39,6 @@ public class MazoCartas {
 				jugadorB.agarrarCarta(this.darCarta());
 			}
 		}
-
 	}
 
 	public boolean existe (Carta carta){
@@ -47,7 +51,19 @@ public class MazoCartas {
 		}
 	}
 
-	
+	public boolean esVacio(){//lo puse porque sino no puedo preguntar si el mazo en la clase jugador es vacio o no
+		return cartas.isEmpty();
+	}
+
+
+	//GET 
+	public Carta getPrimeraCarta(){
+		if(!cartas.isEmpty()){
+			return cartas.get(0);
+		}
+		return null;
+	}
+
 	public int getMazoCompleto(){
 		return cartas.size();
 	}
@@ -56,13 +72,4 @@ public class MazoCartas {
 		return cartas.toString();
 	}
 
-	public boolean esVacio(){//lo puse porque sino no puedo preguntar si el mazo en la clase jugador
-		return cartas.isEmpty();//es vacio o no
-	}
-	public Carta getPrimeraCarta(){
-		if(!cartas.isEmpty()){
-			return cartas.get(0);
-		}
-		return null;
-	}
 }

@@ -4,36 +4,17 @@ package MazoCartas;
 public class MainJuego {
 
 	public static void main(String[] args) {
-		MazoCartas M1 = new MazoCartas();
-		
-		Carta c1 = new Carta("Hulk");	
-		c1.addAtributos("fuerza", 200);
-		c1.addAtributos("velocidad", 20);
-		c1.addAtributos("altura", 100);
-				
-		Carta c2 = new Carta ("Flash");
-		c2.addAtributos("fuerza", 250);
-		c2.addAtributos("velocidad", 200);
-		c2.addAtributos("altura", 10);
-		
-		Carta c3 = new Carta ("Helicoptero");
-		c3.addAtributos("peso", 250);
-		c3.addAtributos("masa", 200);
-		
-		M1.addCarta(c1);
-		M1.addCarta(c2);
-		M1.addCarta(c3);
-		System.out.println(M1);
-		
+		String mazoJson = "C:/Users/Usuario/workspace/TrabajoPracticoProg/src/lib/superheroes.json"; 
+		//se puso la url completa porque no pudimos porla directa y tiraba error
+		MazoCartas mazo = VisorMazo.cargarMazo(mazoJson);
+
 		Jugador j1 = new Jugador ("PEPITO");
 		Jugador j2 = new Jugador ("JOSE");
 		
-		Juego jugar = new Juego (M1, j1, j2, 10);
+		//mazo - jugador 1 - jugador 2 - cantidad de rondas
+		Juego jugar = new Juego (mazo, j1, j2, 10);
 		
 		jugar.jugar();
-		
-		
-		
 		
 	}
 }

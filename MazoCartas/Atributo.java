@@ -4,19 +4,13 @@ public class Atributo {
 	private String nombre;
 	private int valor;
 	
+	//CONSTRUCTOR
 	public Atributo(String nombre, int valor){
 		this.nombre = nombre;
 		this.valor = valor;
 	}
 
-	public boolean ganador(Atributo atValor){
-		return this.valor > atValor.getValor();
-	}
-	
-	public boolean empate(Atributo atValor){
-		return this.valor == atValor.getValor();
-	}
-	
+	// GET
 	public String getNombre() {
 		return nombre;
 	}
@@ -35,6 +29,6 @@ public class Atributo {
 	}
 	
 	public String toString(){
-		return this.getNombre()+": "+this.getValor();
+		return this.getNombre()+": "+this.getValor() + "\n";
 	}
 }

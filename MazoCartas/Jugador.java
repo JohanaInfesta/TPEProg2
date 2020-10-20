@@ -5,26 +5,16 @@ public class Jugador {
 	private MazoCartas cartas;
 	private boolean esGanador;
 
-
+	//CONSTRUCTOR
 	public Jugador(String nombre){
 		this.nombre = nombre;
 		this.esGanador = false;
 		this.cartas = new MazoCartas();
 	}
-
-	public String getNombre(){
-		return nombre;
-	}
-
+	
+	//METODOS
 	public void agarrarCarta(Carta carta){
 		cartas.addCarta(carta); // agrega las cartas al mazo del jugador
-	}
-
-	public Carta getPrimeraCarta(){
-		if(!cartas.esVacio()){
-			return cartas.getPrimeraCarta();
-		}
-		return null;
 	}
 
 	public Atributo elegirAtributo(Carta carta){
@@ -48,16 +38,32 @@ public class Jugador {
 		return esGanador;
 	}
 
-	public void setEsGanador(boolean esGanador){
-		this.esGanador = esGanador;
+	// GET - SET
+
+	public int mazoCartas(){
+		return cartas.getMazoCompleto();
 	}
 	
 	public MazoCartas getCartas(){
 		return cartas;
 	}
-	public int mazoCartas(){
-		return cartas.getMazoCompleto();
+	
+	public String getNombre(){
+		return nombre;
 	}
+
+
+	public void setEsGanador(boolean esGanador){
+		this.esGanador = esGanador;
+	}
+
+	public Carta getPrimeraCarta(){
+		if(!cartas.esVacio()){
+			return cartas.getPrimeraCarta();
+		}
+		return null;
+	}
+
 	public String toString(){
 		return this.getNombre();
 	}

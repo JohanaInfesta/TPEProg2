@@ -6,21 +6,13 @@ public class Carta {
 	private String nombre;
 	private ArrayList <Atributo> atributos;
 
+	//CONSTRUCTOR
 	public Carta(String nombre){
 		this.nombre = nombre;
 		atributos = new ArrayList<>();
 	}
-
-	public String getNombre(){
-		return nombre;
-	}
-
-	public void addAtributos(String nombre, int valor){
-		if(!tieneAtributo(nombre)){
-			this.atributos.add(new Atributo(nombre, valor));
-		}
-	}
 	
+	//METODOS
 	public Atributo getAtributo(String nombreAtributo) {
 		Atributo atributo = null;
 		for(int i = 0; i < atributos.size(); i++) {
@@ -31,12 +23,11 @@ public class Carta {
 		}
 		return atributo;//tiene que estar inicializada si o si para que realice el return
 	}
-
-	public ArrayList <Atributo> getAtributos (){
-		
-		return this.atributos;
-	}
-
+	
+	public boolean tieneAtributo (Atributo at){
+		return atributos.contains(at);
+	} 
+	
 	public boolean tieneAtributo(String nombre){
 		Atributo at = this.getAtributo(nombre);
 		return (at != null);
@@ -50,28 +41,17 @@ public class Carta {
 		Atributo at = atributos.get(atributoPosicion); 
 		return at; //devuelve la posicion del atributo elegido
 	}
-	
-	public boolean tieneAtributo (Atributo at){
-		return atributos.contains(at);
-	} // tengo que implementar equals para usar este metodo
+
+	public void addAtributos(String nombre, int valor){
+		if(!tieneAtributo(nombre)){
+			this.atributos.add(new Atributo(nombre, valor));
+		}
+	}
 	
 	public void agregarAtributo(Atributo atributo){//metodo creado porque lo pide el VisorMazo
 		if(!tieneAtributo(atributo)){
 			atributos.add(atributo);
 		}
-	}
-	
-	public boolean equals(Object obj) {
-		try {
-			Carta aux = (Carta) obj;
-			return this.getNombre().equals(aux.getNombre());
-		} catch (Exception e) {
-			return false;
-		}
-	}
-	
-	public String toString(){
-		return this.getNombre();
 	}
 
 	public boolean comparar(Carta c) {
@@ -82,5 +62,26 @@ public class Carta {
 			}
 		}
 		return true;
+	}
+	// GET  
+	public String getNombre(){
+		return nombre;
+	}
+	
+	public ArrayList <Atributo> getAtributos (){
+		return this.atributos;
+	}
+
+	public boolean equals(Object obj) {
+		try {
+			Carta aux = (Carta) obj;
+			return this.getNombre().equals(aux.getNombre());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	
+	public String toString(){
+		return this.getNombre() + " " + this.atributos;
 	}
 }

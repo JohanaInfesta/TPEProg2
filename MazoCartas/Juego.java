@@ -8,14 +8,14 @@ public class Juego {
 	private int maxRondas;
 	private Jugador perdedorRonda;
 
-
+	//CONSTRUCTOR
 	public Juego(MazoCartas mazo, Jugador jugadorA, Jugador jugadorB, int maxRondas){
 		this.mazo = mazo;
 		this.jugadorA = jugadorA;
 		this.jugadorB = jugadorB;
 		this.maxRondas = maxRondas;
 	}
-
+	//METODOS
 	public Jugador asignarTurno(){
 		Jugador ganador;
 		if(jugadorA.esGanador() && !jugadorB.esGanador()){
@@ -81,6 +81,7 @@ public class Juego {
 		
 	}
 
+	//GET - SET 
 	public MazoCartas getMazo(){
 		return mazo;
 	}
