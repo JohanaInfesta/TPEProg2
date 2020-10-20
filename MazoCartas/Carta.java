@@ -51,10 +51,25 @@ public class Carta {
 		return at; //devuelve la posicion del atributo elegido
 	}
 	
-//	public boolean tieneAtributo (Atributo at){
-//		return atributos.contains(at);
-//	} // tengo que implementar equals para usar este metodo
-
+	public boolean tieneAtributo (Atributo at){
+		return atributos.contains(at);
+	} // tengo que implementar equals para usar este metodo
+	
+	public void agregarAtributo(Atributo atributo){//metodo creado porque lo pide el VisorMazo
+		if(!tieneAtributo(atributo)){
+			atributos.add(atributo);
+		}
+	}
+	
+	public boolean equals(Object obj) {
+		try {
+			Carta aux = (Carta) obj;
+			return this.getNombre().equals(aux.getNombre());
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	
 	public String toString(){
 		return this.getNombre();
 	}
