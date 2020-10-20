@@ -57,8 +57,26 @@ public class Juego {
 	}
 	
 	public void asignarResultado(Jugador primerTurno, Carta cartaPrimerTurno, Jugador segundoTurno, Carta cartaSegundoTurno, Atributo atributoElegido){
-		
-		//resolver
+		if(primerTurno.elegirAtributo(cartaPrimerTurno).getValor()>segundoTurno.elegirAtributo(cartaSegundoTurno).getValor()){
+			primerTurno.gana(cartaSegundoTurno);
+			segundoTurno.pierde(cartaSegundoTurno);
+			Jugador ganador = primerTurno;
+			Jugador perdedor = segundoTurno;
+			primerTurno = asignarTurno();
+			segundoTurno = getPerdedorRonda();
+		}else if(segundoTurno.elegirAtributo(cartaSegundoTurno).getValor()>primerTurno.elegirAtributo(cartaPrimerTurno).getValor()){
+			primerTurno.pierde(cartaPrimerTurno);
+			segundoTurno.gana(cartaPrimerTurno);
+			Jugador ganador = segundoTurno;
+			Jugador perdedor = primerTurno;
+			segundoTurno = asignarTurno();
+			primerTurno = getPerdedorRonda();
+		}else{
+			primerTurno.agarrarCarta(cartaPrimerTurno);
+			segundoTurno.agarrarCarta(cartaSegundoTurno);
+			Jugador ganador = new Jugador ("Ninguno");
+			Jugador perdedor = new Jugador ("Ninguno");
+		}
 		
 		
 	}

@@ -37,9 +37,14 @@ public class MazoCartas {
 
 	}
 
+	public boolean existe (Carta carta){
+		return cartas.contains(carta);
+	}
 
 	public void eliminarCarta(Carta cartaPerdedora){
-
+		if(existe(cartaPerdedora)){
+			cartas.remove(cartaPerdedora);
+		}
 	}
 
 	
