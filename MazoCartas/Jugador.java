@@ -14,7 +14,7 @@ public class Jugador {
 	
 	//METODOS
 	public void agarrarCarta(Carta carta){
-		cartas.addCarta(carta); // agrega las cartas al mazo del jugador
+		cartas.addCarta(carta);
 	}
 
 	public Atributo elegirAtributo(Carta carta){

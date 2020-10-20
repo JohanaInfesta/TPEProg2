@@ -4,8 +4,7 @@ package MazoCartas;
 public class MainJuego {
 
 	public static void main(String[] args) {
-		String mazoJson = "C:/Users/Usuario/workspace/TrabajoPracticoProg/src/lib/superheroes.json"; 
-		//se puso la url completa porque no pudimos porla directa y tiraba error
+		String mazoJson = "./src/lib/superheroes.json"; 
 		MazoCartas mazo = VisorMazo.cargarMazo(mazoJson);
 
 		Jugador j1 = new Jugador ("PEPITO");

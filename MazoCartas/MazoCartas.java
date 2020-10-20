@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class MazoCartas {
+	
 	private ArrayList <Carta> cartas;
 
 	//CONSTRUCTOR
@@ -27,19 +28,20 @@ public class MazoCartas {
 		return primera.comparar(c);
 	}
 
-	public Carta darCarta(){
-		return cartas.remove(0); //elimina la primera carta del mazo
-	}
-
 	public void repartirCarta(Jugador jugadorA, Jugador jugadorB){
 		Collections.shuffle(cartas); // mezcla las cartas del mazo
 		while(!cartas.isEmpty()){
-			jugadorA.agarrarCarta(this.darCarta()); // cuando da la primera carta se elimina automaticamente dek mazo con el metodo darCarta
-			if(cartas.isEmpty()){
-				jugadorB.agarrarCarta(this.darCarta());
+			jugadorA.agarrarCarta(darCarta());// cuando da la primera carta se elimina automaticamente dek mazo con el metodo darCarta
+			if(!cartas.isEmpty()){
+				jugadorB.agarrarCarta(darCarta());
 			}
 		}
 	}
+	
+	public Carta darCarta(){
+		return this.cartas.remove(0); //elimina la primera carta del mazo
+	}
+
 
 	public boolean existe (Carta carta){
 		return cartas.contains(carta);
@@ -58,16 +60,16 @@ public class MazoCartas {
 
 	//GET 
 	public Carta getPrimeraCarta(){
-		if(!cartas.isEmpty()){
-			return cartas.get(0);
-		}
-		return null;
+		return getMazo().get(0);
 	}
 
 	public int getMazoCompleto(){
 		return cartas.size();
 	}
 
+	public ArrayList<Carta> getMazo(){
+		return new ArrayList<>(cartas);
+	}
 	public String toString(){
 		return cartas.toString();
 	}
