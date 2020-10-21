@@ -81,8 +81,8 @@ public class Juego {
 		}else{
 			primerTurno.agarrarCarta(cartaPrimerTurno);
 			segundoTurno.agarrarCarta(cartaSegundoTurno);
-			Jugador ganador = new Jugador ("Ninguno");
-			Jugador perdedor = new Jugador ("Ninguno");
+			Jugador ganador = new JugadorObstinado ("Ninguno");
+			Jugador perdedor = new JugadorObstinado ("Ninguno");
 		}
 
 

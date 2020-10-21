@@ -10,13 +10,17 @@ public class Atributo {
 		this.valor = valor;
 	}
 
-	// GET
+	// GET - SET
 	public String getNombre() {
 		return nombre;
 	}
 
 	public int getValor() {
 		return valor;
+	}
+	
+	public void setValor(int valor){
+		this.valor = valor;
 	}
 
 	public boolean equals (Object obj){

@@ -1,6 +1,6 @@
 package MazoCartas;
 
-public class Jugador {
+public abstract class Jugador {
 	private String nombre;
 	private MazoCartas cartas;
 	private boolean esGanador;
@@ -17,12 +17,13 @@ public class Jugador {
 		cartas.addCarta(carta);
 	}
 
-	public Atributo elegirAtributo(Carta carta){
-		int cantAtributos = carta.cantAtributos();
-		int atributoRandom = (int) (Math.random()*cantAtributos );
-		Atributo atributoElegido = carta.atributoPorPosicion(atributoRandom);
-		return atributoElegido;
-	}
+	public abstract Atributo elegirAtributo(Carta carta);
+//	public Atributo elegirAtributo(Carta carta){
+//		int cantAtributos = carta.cantAtributos();
+//		int atributoRandom = (int) (Math.random()*cantAtributos );
+//		Atributo atributoElegido = carta.atributoPorPosicion(atributoRandom);
+//		return atributoElegido;
+//	}
 
 	public void gana(Carta cartaPerdedora){
 		Carta ganadora = cartas.getPrimeraCarta();
@@ -70,4 +71,5 @@ public class Jugador {
 	public String toString(){
 		return this.getNombre();
 	}
+
 }
