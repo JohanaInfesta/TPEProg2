@@ -11,7 +11,7 @@ public class Jugador {
 		this.esGanador = false;
 		this.cartas = new MazoCartas();
 	}
-	
+
 	//METODOS
 	public void agarrarCarta(Carta carta){
 		cartas.addCarta(carta);
@@ -25,8 +25,11 @@ public class Jugador {
 	}
 
 	public void gana(Carta cartaPerdedora){
+		Carta ganadora = cartas.getPrimeraCarta();
 		setEsGanador(true);
 		cartas.addCarta(cartaPerdedora);
+		cartas.addCarta(ganadora);
+		cartas.darCarta();
 	}
 
 	public void pierde(Carta cartaPerdedora){
@@ -43,11 +46,11 @@ public class Jugador {
 	public int mazoCartas(){
 		return cartas.getMazoCompleto();
 	}
-	
+
 	public MazoCartas getCartas(){
 		return cartas;
 	}
-	
+
 	public String getNombre(){
 		return nombre;
 	}

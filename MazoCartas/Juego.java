@@ -6,6 +6,7 @@ public class Juego {
 	private Jugador jugadorA;
 	private Jugador jugadorB;
 	private int maxRondas;
+	private Jugador perdedorRonda;
 
 	//CONSTRUCTOR
 	public Juego(MazoCartas mazo, Jugador jugadorA, Jugador jugadorB, int maxRondas){
@@ -20,22 +21,43 @@ public class Juego {
 		return rondas == maxRondas || jugadorA.mazoCartas() == 0 || jugadorB.mazoCartas() == 0;
 	}
 
+	public Jugador asignarTurno(){
+		Jugador ganador;
+		if(jugadorA.esGanador() && !jugadorB.esGanador()){
+			ganador = jugadorA;
+			jugadorB.setEsGanador(false);
+			setPerdedorRonda(jugadorB);
+		}else if(jugadorB.esGanador() && !jugadorA.esGanador()){
+			ganador = jugadorB;
+			jugadorA.setEsGanador(false);
+			setPerdedorRonda(jugadorA);
+		}else{
+			ganador = jugadorA;
+			jugadorB.setEsGanador(false);
+			setPerdedorRonda(jugadorB);
+		}
+		return ganador;
+	}
 	public void jugar(){
-		int ronda = 0;
+		int ronda = 1;
 		mazo.repartirCarta(jugadorA, jugadorB);
-		
+
 		while(!finDelJuego(ronda)){
-			Carta cartaPrimerTurno = jugadorA.getPrimeraCarta();
-			Carta cartaSegundoTurno = jugadorB.getPrimeraCarta();
-			Atributo atributoElegido = jugadorA.elegirAtributo(cartaPrimerTurno);
-			System.out.println("el jugador : " + jugadorA + " eligio el atributo : " + atributoElegido);
-			System.out.println("La carta de " + jugadorA + " es " + cartaPrimerTurno);
-			System.out.println("La carta de " + jugadorB + " es " + cartaSegundoTurno);
+			Jugador pimerTurno = asignarTurno();
+			Carta cartaPrimerTurno = pimerTurno.getPrimeraCarta();
+			Jugador segundoTurno = getPerdedorRonda();
+			Carta cartaSegundoTurno = segundoTurno.getPrimeraCarta();
+			Atributo atributoElegido = pimerTurno.elegirAtributo(cartaPrimerTurno);
+			System.out.println("el jugador : " + pimerTurno + " eligio el atributo : " + atributoElegido);
+			System.out.println("La carta de " + pimerTurno + " es " + cartaPrimerTurno);
+			System.out.println("La carta de " + segundoTurno + " es " + cartaSegundoTurno);
 			System.out.println();
-			asignarResultado(jugadorA, cartaPrimerTurno, jugadorB, cartaSegundoTurno, atributoElegido);
+			asignarResultado(pimerTurno, cartaPrimerTurno, segundoTurno, cartaSegundoTurno, atributoElegido);
 
 			System.out.println("RONDA N°: " + ronda);
 			ronda ++;
+
+
 		}
 		System.out.println("Fin del juego");
 	}
@@ -44,13 +66,23 @@ public class Juego {
 		if(primerTurno.elegirAtributo(cartaPrimerTurno).getValor()>segundoTurno.elegirAtributo(cartaSegundoTurno).getValor()){
 			primerTurno.gana(cartaSegundoTurno);
 			segundoTurno.pierde(cartaSegundoTurno);
+			Jugador ganador = primerTurno;
+			Jugador perdedor = segundoTurno;
+			primerTurno = asignarTurno();
+			segundoTurno = getPerdedorRonda();
 		}else if(segundoTurno.elegirAtributo(cartaSegundoTurno).getValor()>primerTurno.elegirAtributo(cartaPrimerTurno).getValor()){
 			primerTurno.pierde(cartaPrimerTurno);
 			segundoTurno.gana(cartaPrimerTurno);
 			segundoTurno = primerTurno;
+			Jugador ganador = segundoTurno;
+			Jugador perdedor = primerTurno;
+			segundoTurno = asignarTurno();
+			primerTurno = getPerdedorRonda();
 		}else{
 			primerTurno.agarrarCarta(cartaPrimerTurno);
 			segundoTurno.agarrarCarta(cartaSegundoTurno);
+			Jugador ganador = new Jugador ("Ninguno");
+			Jugador perdedor = new Jugador ("Ninguno");
 		}
 
 
@@ -77,5 +109,11 @@ public class Juego {
 		this.maxRondas = maxRondas;
 	}
 
+	public Jugador getPerdedorRonda(){
+		return perdedorRonda;
+	}
+	private void setPerdedorRonda(Jugador perdedorRonda) {
+		this.perdedorRonda = perdedorRonda;
+	}
 
 }

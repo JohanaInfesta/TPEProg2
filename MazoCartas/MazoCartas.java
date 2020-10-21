@@ -57,7 +57,6 @@ public class MazoCartas {
 		return cartas.isEmpty();
 	}
 
-
 	//GET 
 	public Carta getPrimeraCarta(){
 		return getMazo().get(0);
