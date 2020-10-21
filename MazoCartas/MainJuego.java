@@ -4,6 +4,9 @@ package MazoCartas;
 public class MainJuego {
 
 	public static void main(String[] args) {
+		Pocima p1 = new Pocima ("Fortalecedora", 0.20);
+		Pocima p2 = new Pocima ("Pócima Selectiva Fuerza.", 0.35);
+		
 		String mazoJson = "./src/lib/superheroes.json"; 
 		MazoCartas mazo = VisorMazo.cargarMazo(mazoJson);
 

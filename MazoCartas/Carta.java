@@ -5,13 +5,15 @@ import java.util.ArrayList;
 public class Carta {
 	private String nombre;
 	private ArrayList <Atributo> atributos;
+	private Pocima pocima;
 
 	//CONSTRUCTOR
 	public Carta(String nombre){
 		this.nombre = nombre;
 		atributos = new ArrayList<>();
+		pocima = new Pocima();
 	}
-	
+
 	//METODOS
 	public Atributo getAtributo(String nombreAtributo) {
 		Atributo atributo = null;
@@ -23,11 +25,11 @@ public class Carta {
 		}
 		return atributo;//tiene que estar inicializada si o si para que realice el return
 	}
-	
+
 	public boolean tieneAtributo (Atributo at){
 		return atributos.contains(at);
 	} 
-	
+
 	public boolean tieneAtributo(String nombre){
 		Atributo at = this.getAtributo(nombre);
 		return (at != null);
@@ -36,7 +38,7 @@ public class Carta {
 	public int cantAtributos(){
 		return atributos.size();//devuelve la cantidad de los atributos por carta
 	}
-	
+
 	public Atributo atributoPorPosicion(int atributoPosicion){
 		Atributo at = atributos.get(atributoPosicion); 
 		return at; //devuelve la posicion del atributo elegido
@@ -47,7 +49,7 @@ public class Carta {
 			this.atributos.add(new Atributo(nombre, valor));
 		}
 	}
-	
+
 	public void agregarAtributo(Atributo atributo){//metodo creado porque lo pide el VisorMazo
 		if(!tieneAtributo(atributo)){
 			atributos.add(atributo);
@@ -63,11 +65,16 @@ public class Carta {
 		}
 		return true;
 	}
+	// 2DA PARTE
+	public void agregarPocima(Pocima pocima){
+		this.pocima = pocima;
+	}
+	
 	// GET  
 	public String getNombre(){
 		return nombre;
 	}
-	
+
 	public ArrayList <Atributo> getAtributos (){
 		return this.atributos;
 	}
@@ -80,8 +87,9 @@ public class Carta {
 			return false;
 		}
 	}
-	
+
 	public String toString(){
 		return this.getNombre() + " " + this.atributos;
 	}
+
 }

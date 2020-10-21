@@ -43,16 +43,21 @@ public class Juego {
 		mazo.repartirCarta(jugadorA, jugadorB);
 
 		while(!finDelJuego(ronda)){
-			Jugador pimerTurno = asignarTurno();
-			Carta cartaPrimerTurno = pimerTurno.getPrimeraCarta();
+			Jugador primerTurno = asignarTurno();
+			Carta cartaPrimerTurno = primerTurno.getPrimeraCarta();
 			Jugador segundoTurno = getPerdedorRonda();
 			Carta cartaSegundoTurno = segundoTurno.getPrimeraCarta();
-			Atributo atributoElegido = pimerTurno.elegirAtributo(cartaPrimerTurno);
-			System.out.println("el jugador : " + pimerTurno + " eligio el atributo : " + atributoElegido);
-			System.out.println("La carta de " + pimerTurno + " es " + cartaPrimerTurno);
+			Atributo atributoElegido = primerTurno.elegirAtributo(cartaPrimerTurno);
+			System.out.println("el jugador : " + primerTurno + " eligio el atributo : " + atributoElegido);
+			System.out.println("La carta de " + primerTurno + " es " + cartaPrimerTurno);
+//			if(primerTurno.agregarPocima == false){
+//			Pocima pocion =	primerTurno.agregarPocima();
+//				System.out.println("Se aplico pocima " + "pocion");
+//			}
 			System.out.println("La carta de " + segundoTurno + " es " + cartaSegundoTurno);
 			System.out.println();
-			asignarResultado(pimerTurno, cartaPrimerTurno, segundoTurno, cartaSegundoTurno, atributoElegido);
+			
+			asignarResultado(primerTurno, cartaPrimerTurno, segundoTurno, cartaSegundoTurno, atributoElegido);
 
 			System.out.println("RONDA N°: " + ronda);
 			ronda ++;

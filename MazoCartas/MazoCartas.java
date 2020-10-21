@@ -6,6 +6,7 @@ import java.util.Collections;
 public class MazoCartas {
 	
 	private ArrayList <Carta> cartas;
+	private ArrayList <Pocima>pocima;
 
 	//CONSTRUCTOR
 	public MazoCartas(){

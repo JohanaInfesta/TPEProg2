@@ -18,12 +18,7 @@ public abstract class Jugador {
 	}
 
 	public abstract Atributo elegirAtributo(Carta carta);
-//	public Atributo elegirAtributo(Carta carta){
-//		int cantAtributos = carta.cantAtributos();
-//		int atributoRandom = (int) (Math.random()*cantAtributos );
-//		Atributo atributoElegido = carta.atributoPorPosicion(atributoRandom);
-//		return atributoElegido;
-//	}
+
 
 	public void gana(Carta cartaPerdedora){
 		Carta ganadora = cartas.getPrimeraCarta();
