@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Carta {
 	private String nombre;
 	private ArrayList <Atributo> atributos;
+	private Pocima pocima;
 
 	//CONSTRUCTOR
 	public Carta(String nombre){
@@ -63,7 +64,21 @@ public class Carta {
 		}
 		return true;
 	}
+
+	public Atributo mismoAtributo(Atributo atributoElegido){ // metodo realizado para imprimir el mismo atributo elegido por el primer jugador
+		Atributo igual = null;
+		for(Atributo atr: atributos){
+			if(atr.equals(atributoElegido)){
+				igual = atr;
+				return igual;
+			}
+		}
+		return igual;
+	}
 	// 2DA PARTE
+	public Pocima agregarPocima(Atributo atr){
+		return pocima;
+	}
 
 	// GET  
 	public String getNombre(){
@@ -71,7 +86,7 @@ public class Carta {
 	}
 
 	public ArrayList <Atributo> getAtributos (){
-		return new ArrayList<>(this.atributos);
+		return this.atributos;
 	}
 
 	public boolean equals(Object obj) {

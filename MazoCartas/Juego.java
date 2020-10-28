@@ -7,7 +7,8 @@ public class Juego {
 	private Jugador jugadorB;
 	private int maxRondas;
 	private Jugador perdedorRonda;
-
+	
+	Pocima p7 = new PocimaSelectiva("Pócima Selectiva Fuerza", 0.35);
 	//CONSTRUCTOR
 	public Juego(MazoCartas mazo, Jugador jugadorA, Jugador jugadorB, int maxRondas){
 		this.mazo = mazo;
@@ -44,17 +45,17 @@ public class Juego {
 
 		while(!finDelJuego(ronda)){
 			Jugador primerTurno = asignarTurno();
-			Carta cartaPrimerTurno = primerTurno.getPrimeraCarta();
 			Jugador segundoTurno = getPerdedorRonda();
-			Carta cartaSegundoTurno = segundoTurno.getPrimeraCarta();
+			Carta cartaPrimerTurno = primerTurno.getPrimeraCarta();
+			Carta cartaSegundoTurno = segundoTurno.getPrimeraCarta();			
 			Atributo atributoElegido = primerTurno.elegirAtributo(cartaPrimerTurno);
-			System.out.println("el jugador : " + primerTurno + " eligio el atributo : " + atributoElegido);
-			System.out.println("La carta de " + primerTurno + " es " + cartaPrimerTurno);
-//			if(primerTurno.agregarPocima == false){
-//			Pocima pocion =	primerTurno.agregarPocima();
-//				System.out.println("Se aplico pocima " + "pocion");
-//			}
-			System.out.println("La carta de " + segundoTurno + " es " + cartaSegundoTurno);
+			Atributo atributoSegundoTurno = cartaSegundoTurno.mismoAtributo(atributoElegido);
+			
+			// esto se puede poner en otra clase
+			System.out.println("carta con pocima: " + cartaPrimerTurno);
+			System.out.println("el jugador : " + primerTurno + " eligio el atributo : " + atributoElegido.getNombre());
+			System.out.println("La carta de " + primerTurno + " es " + cartaPrimerTurno.getNombre() + " con " + atributoElegido.getValor());
+			System.out.println("La carta de " + segundoTurno + " es " + cartaSegundoTurno.getNombre() + " con " + atributoSegundoTurno.getValor());
 			System.out.println();
 			
 			asignarResultado(primerTurno, cartaPrimerTurno, segundoTurno, cartaSegundoTurno, atributoElegido);

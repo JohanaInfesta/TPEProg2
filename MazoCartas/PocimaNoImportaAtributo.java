@@ -11,13 +11,13 @@ public class PocimaNoImportaAtributo extends Pocima {
 
 	@Override
 	public ArrayList<Atributo> addPocima(Carta cartas) {
-		ArrayList<Atributo> cartaConPocima = new ArrayList<>(); 
 		ArrayList<Atributo> carta = cartas.getAtributos();
-		for(Atributo a:carta){
-//			double aux = a.setValor(this.getValor());
-//			cartaConPocima.addAll(aux);
+		for(Atributo c:carta){
+			double valor = c.getValor();
+			valor = super.getValor();
+			c.setValor(valor);
 		}
-		return null;
+		return carta;
 	}
 
 }

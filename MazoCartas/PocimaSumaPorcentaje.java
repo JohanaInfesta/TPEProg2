@@ -10,13 +10,13 @@ public class PocimaSumaPorcentaje extends Pocima {
 
 	@Override
 	public ArrayList<Atributo> addPocima(Carta cartas) {
-		ArrayList<Atributo> cartaConPocima = new ArrayList<>(); 
 		ArrayList<Atributo> carta = cartas.getAtributos();
 		for(Atributo c:carta){
-//			double porcentaje = c.getValor() + c.getValor() * super.getValor();
-//			cartaConPocima.addAll(c.setValor(porcentaje));
+			double valor = c.getValor();
+			double porcentaje = valor + valor * super.getValor();
+			c.setValor(porcentaje);
 		}
-		return cartaConPocima;
+		return carta;
 	}
 
 }

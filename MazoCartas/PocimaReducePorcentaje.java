@@ -11,8 +11,13 @@ public class PocimaReducePorcentaje extends Pocima {
 
 	@Override
 	public ArrayList<Atributo> addPocima(Carta cartas) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Atributo> carta = cartas.getAtributos();
+		for(Atributo c:carta){
+			double valor = c.getValor();
+			double porcentaje = valor - valor * super.getValor();
+			c.setValor(porcentaje);
+		}
+		return carta;
 	}
 
 }

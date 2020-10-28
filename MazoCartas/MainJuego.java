@@ -4,19 +4,33 @@ package MazoCartas;
 public class MainJuego {
 
 	public static void main(String[] args) {
+		
+		String mazoJson = "./src/lib/superheroes.json"; 
+		MazoCartas mazo = VisorMazo.cargarMazo(mazoJson);
+		
+		
 		Pocima p1 = new PocimaSumaPorcentaje("Fortalecedora", 0.20);
 		Pocima p2 = new PocimaSumaPorcentaje("Fortalecedora Plus", 0.50);
 		Pocima p3 = new PocimaReducePorcentaje("Kriptonita", 0.2);
 		Pocima p4 = new PocimaReducePorcentaje("Reductor de Plomo", 0.55);
 		Pocima p5 = new PocimaNoImportaAtributo("Quiero vale cuatro", 4.0);
 		Pocima p6 = new PocimaNoImportaAtributo("Número Mágico", 23.0);
-//		Pocima p7 = new PocimaNoImportaAtributo("Pócima Selectiva Fuerza", 0.35);
-//		Pocima p8 = new PocimaNoImportaAtributo("Pócima Selectiva Peso", 0.43);
+		Pocima p7 = new PocimaSelectiva("Pócima Selectiva Fuerza", 0.35);
+		Pocima p8 = new PocimaSelectiva("Pócima Selectiva Peso", 0.43);
 //		Pocima p9 = new PocimaNoImportaAtributo("Pócima Cocktail", );
 		
-		String mazoJson = "./src/lib/superheroes.json"; 
-		MazoCartas mazo = VisorMazo.cargarMazo(mazoJson);
 
+		
+		
+		mazo.addPocima(p1);
+		mazo.addPocima(p2);
+		mazo.addPocima(p3);
+		mazo.addPocima(p4);
+		mazo.addPocima(p5);
+		mazo.addPocima(p6);
+		mazo.addPocima(p7);
+		mazo.addPocima(p8);
+		
 		Jugador j1 = new JugadorObstinado ("PEPITO");
 		Jugador j2 = new JugadorObstinado ("JOSE");
 		

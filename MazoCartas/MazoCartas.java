@@ -6,17 +6,18 @@ import java.util.Collections;
 public class MazoCartas {
 
 	private ArrayList <Carta> cartas;
-//	private ArrayList<Pocima> pocima;
+	private ArrayList <Pocima> pocima;
 
 	//CONSTRUCTOR
 	public MazoCartas(){
 		cartas = new ArrayList <>();
+		pocima = new ArrayList<>();
 	}
 
 	//2DA PARTE
-//	public void addPocima(Pocima p){
-//		pocima.add(p);
-//	}
+	public void addPocima(Pocima p){
+		pocima.add(p);
+	}
 
 	//METODOS
 	public void addCarta(Carta c){
