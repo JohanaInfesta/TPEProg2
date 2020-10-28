@@ -2,10 +2,10 @@ package MazoCartas;
 
 public class Atributo {
 	private String nombre;
-	private int valor;
+	private double valor;
 	
 	//CONSTRUCTOR
-	public Atributo(String nombre, int valor){
+	public Atributo(String nombre, double valor){
 		this.nombre = nombre;
 		this.valor = valor;
 	}
@@ -15,11 +15,11 @@ public class Atributo {
 		return nombre;
 	}
 
-	public int getValor() {
+	public double getValor() {
 		return valor;
 	}
 	
-	public void setValor(int valor){
+	public void setValor(double valor){
 		this.valor = valor;
 	}
 

@@ -8,7 +8,8 @@ public class JugadorAmbicioso extends Jugador {
 
 	@Override
 	public Atributo elegirAtributo(Carta carta) {
-		int valorMasAlto = 0, valor, pos = 0;
+		double valorMasAlto = 0,valor ;
+		int pos = 0;
 		int cantAtributos = carta.cantAtributos();
 		for(int i= 0; i< cantAtributos; i++){
 			valor = carta.getAtributos().get(i).getValor();

@@ -5,13 +5,11 @@ import java.util.ArrayList;
 public class Carta {
 	private String nombre;
 	private ArrayList <Atributo> atributos;
-	private Pocima pocima;
 
 	//CONSTRUCTOR
 	public Carta(String nombre){
 		this.nombre = nombre;
 		atributos = new ArrayList<>();
-		pocima = new Pocima();
 	}
 
 	//METODOS
@@ -66,17 +64,14 @@ public class Carta {
 		return true;
 	}
 	// 2DA PARTE
-	public void agregarPocima(Pocima pocima){
-		this.pocima = pocima;
-	}
-	
+
 	// GET  
 	public String getNombre(){
 		return nombre;
 	}
 
 	public ArrayList <Atributo> getAtributos (){
-		return this.atributos;
+		return new ArrayList<>(this.atributos);
 	}
 
 	public boolean equals(Object obj) {
