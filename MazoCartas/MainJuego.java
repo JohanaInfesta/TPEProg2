@@ -17,11 +17,8 @@ public class MainJuego {
 		Pocima p6 = new PocimaNoImportaAtributo("Número Mágico", 23.0);
 		Pocima p7 = new PocimaSelectiva("Pócima Selectiva Fuerza", 0.35);
 		Pocima p8 = new PocimaSelectiva("Pócima Selectiva Peso", 0.43);
-//		Pocima p9 = new PocimaNoImportaAtributo("Pócima Cocktail", );
-		
+		PocimaCocktail p9 = new PocimaCocktail("Pócima Cocktail");
 
-		
-		
 		mazo.addPocima(p1);
 		mazo.addPocima(p2);
 		mazo.addPocima(p3);
@@ -30,10 +27,15 @@ public class MainJuego {
 		mazo.addPocima(p6);
 		mazo.addPocima(p7);
 		mazo.addPocima(p8);
+		mazo.addPocima(p9);
+		
+//		p9.addPocimasAlCocktail(p1);
+//		p9.addPocimasAlCocktail(p2);
+		
 		
 		Jugador j1 = new JugadorObstinado ("PEPITO");
 		Jugador j2 = new JugadorObstinado ("JOSE");
-		
+	
 		//mazo - jugador 1 - jugador 2 - cantidad de rondas
 		Juego jugar = new Juego (mazo, j1, j2, 10);
 		

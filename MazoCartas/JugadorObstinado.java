@@ -9,7 +9,7 @@ public class JugadorObstinado extends Jugador {
 
 	@Override
 	public Atributo elegirAtributo(Carta carta) {
-		return carta.atributoPorPosicion(0);
+		return carta.atributoPorPosicion(2);
 	}
 
 }

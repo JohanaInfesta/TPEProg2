@@ -76,8 +76,12 @@ public class Carta {
 		return igual;
 	}
 	// 2DA PARTE
-	public Pocima agregarPocima(Atributo atr){
+	public Pocima getPocima(){
 		return pocima;
+	}
+
+	public void agregarPocima(Pocima pocima){
+		pocima.addPocima(this);
 	}
 
 	// GET  
@@ -99,7 +103,7 @@ public class Carta {
 	}
 
 	public String toString(){
-		return this.getNombre() + " " + this.atributos;
+		return this.getNombre() + " " + this.atributos + pocima;
 	}
 
 }
