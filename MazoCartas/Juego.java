@@ -1,7 +1,5 @@
 package MazoCartas;
 
-import java.util.Collections;
-
 public class Juego {
 
 	private MazoCartas mazo;
@@ -9,14 +7,15 @@ public class Juego {
 	private Jugador jugadorB;
 	private int maxRondas;
 	private Jugador perdedorRonda;
-//	Pocima p5 = new PocimaNoImportaAtributo("Quiero vale cuatro", 4.0);
-	
+
+
 	//CONSTRUCTOR
 	public Juego(MazoCartas mazo, Jugador jugadorA, Jugador jugadorB, int maxRondas){
 		this.mazo = mazo;
 		this.jugadorA = jugadorA;
 		this.jugadorB = jugadorB;
 		this.maxRondas = maxRondas;
+
 	}
 	//METODOS
 
@@ -44,34 +43,30 @@ public class Juego {
 	public void jugar(){
 		int ronda = 1;
 		mazo.repartirCarta(jugadorA, jugadorB);
-		System.out.println(mazo.getPocimasTotal()); 
+
 		while(!finDelJuego(ronda)){
 			Jugador primerTurno = asignarTurno();
 			Jugador segundoTurno = getPerdedorRonda();
 			Carta cartaPrimerTurno = primerTurno.getPrimeraCarta();
 			Carta cartaSegundoTurno = segundoTurno.getPrimeraCarta();			
-			Atributo atributoElegido = primerTurno.elegirAtributo(cartaPrimerTurno);
-			Atributo atributoSegundoTurno = cartaSegundoTurno.mismoAtributo(atributoElegido);
+			String atributoElegido = primerTurno.elegirAtributo(cartaPrimerTurno);
+			Atributo primeraCarta = cartaPrimerTurno.getAtributo(atributoElegido);
+			Atributo segundaCarta = cartaSegundoTurno.mismoAtributo(atributoElegido);
 			// esto se puede poner en otra clase // imprimirResultado();
 			System.out.println("RONDA N°: " + ronda);
-			
-			System.out.println("Pocima   " + cartaPrimerTurno.getPocima());
-			
-			
-			System.out.println("el jugador : " + primerTurno + " eligio competir con el atributo : " + atributoElegido.getNombre());
-			System.out.println("La carta de " + primerTurno + " es " + cartaPrimerTurno.getNombre() + " con " + atributoElegido.getValor());
-			System.out.println("La carta de " + segundoTurno + " es " + cartaSegundoTurno.getNombre() + " con " + atributoSegundoTurno.getValor());
+			System.out.println("el jugador : " + primerTurno + " eligio competir con el atributo : " + atributoElegido);
+			System.out.println("La carta de " + primerTurno + " es " + cartaPrimerTurno.getNombre() + " con " + primeraCarta.getValor() + cartaPrimerTurno.aplicarPocima(atributoElegido));
+			System.out.println("La carta de " + segundoTurno + " es " + cartaSegundoTurno.getNombre() + " con " + segundaCarta.getValor() + cartaSegundoTurno.aplicarPocima(atributoElegido));
 			asignarResultado(primerTurno, cartaPrimerTurno, segundoTurno, cartaSegundoTurno, atributoElegido);
-
-			
+			System.out.println("");
 			ronda ++;
 
 		}
 		System.out.println("Fin del juego");
 	}
 
-	public void asignarResultado(Jugador primerTurno, Carta cartaPrimerTurno, Jugador segundoTurno, Carta cartaSegundoTurno, Atributo atributoElegido){
-		if(primerTurno.elegirAtributo(cartaPrimerTurno).getValor()>segundoTurno.elegirAtributo(cartaSegundoTurno).getValor()){
+	public void asignarResultado(Jugador primerTurno, Carta cartaPrimerTurno, Jugador segundoTurno, Carta cartaSegundoTurno, String atributoElegido){
+		if(primerTurno.getPrimeraCarta().getValorAtributo(atributoElegido)>segundoTurno.getPrimeraCarta().getValorAtributo(atributoElegido)){
 			primerTurno.gana(cartaSegundoTurno);
 			segundoTurno.pierde(cartaSegundoTurno);
 			Jugador ganador = primerTurno;
@@ -79,7 +74,7 @@ public class Juego {
 			primerTurno = asignarTurno();
 			segundoTurno = getPerdedorRonda();
 			System.out.println("Gana la ronda " + ganador + " y le quedan " + ganador.mazoCartas() + " cartas");
-		}else if(segundoTurno.elegirAtributo(cartaSegundoTurno).getValor()>primerTurno.elegirAtributo(cartaPrimerTurno).getValor()){
+		}else if(segundoTurno.getPrimeraCarta().getValorAtributo(atributoElegido)>primerTurno.getPrimeraCarta().getValorAtributo(atributoElegido)){
 			primerTurno.pierde(cartaPrimerTurno);
 			segundoTurno.gana(cartaPrimerTurno);
 			segundoTurno = primerTurno;

@@ -11,6 +11,7 @@ public class Carta {
 	public Carta(String nombre){
 		this.nombre = nombre;
 		atributos = new ArrayList<>();
+		pocima = null;
 	}
 
 	//METODOS
@@ -65,23 +66,47 @@ public class Carta {
 		return true;
 	}
 
-	public Atributo mismoAtributo(Atributo atributoElegido){ // metodo realizado para imprimir el mismo atributo elegido por el primer jugador
+	public Atributo mismoAtributo(String atributoElegido){ // metodo realizado para imprimir el mismo atributo elegido por el primer jugador
 		Atributo igual = null;
 		for(Atributo atr: atributos){
-			if(atr.equals(atributoElegido)){
+			if(atr.getNombre().equals(atributoElegido)){
 				igual = atr;
 				return igual;
 			}
 		}
 		return igual;
 	}
+
 	// 2DA PARTE
-	public Pocima getPocima(){
-		return pocima;
+	public double getValorAtributo(String atributoElegido){
+		Atributo atr = this.getAtributo(atributoElegido);
+		if(pocima != null){
+			return this.getAddPocima(atr.getNombre(), atr.getValor());
+		}else{
+			return atr.getValor();
+		}
 	}
 
-	public void agregarPocima(Pocima pocima){
-		pocima.addPocima(this);
+	public double getAddPocima(String nombre, double val){
+		return pocima.addPocima(nombre, val);
+	}
+
+	public String aplicarPocima(String nombre){
+		if(pocima != null){
+			Atributo atr = this.getAtributo(nombre);
+			double valor = this.getAddPocima(atr.getNombre(), atr.getValor());
+			if(atr.getValor() == valor){
+				return " ";
+			}else{
+				return " se aplico pocima " + pocima.getNombre() + " valor resultante " + pocima.addPocima(nombre, atr.getValor());
+			}
+		}else{
+			return " ";
+		}
+	}
+
+	public void setPocima(Pocima pocima){
+		this.pocima = pocima;
 	}
 
 	// GET  

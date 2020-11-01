@@ -15,21 +15,17 @@ public class PocimaCocktail extends Pocima {
 		pocimas.add(pocima);
 	}
 
-	@Override
-	public ArrayList<Atributo> addPocima(Carta cartas) {
-//		ArrayList<Atributo>carta = cartas.getAtributos();
-		ArrayList<Atributo> aux = new ArrayList<>();
-		for(Pocima p:pocimas){
-			ArrayList<Atributo> pos = p.addPocima(cartas);
-			for(Atributo a:pos){
-				aux.add(a);
-			}
-		}
-		return aux;
-	}
 
 	public String getNombre() {
 		return nombre;
+	}
+
+	@Override
+	public double addPocima(String atr, double val) {
+		for(Pocima p:pocimas){
+			val = p.addPocima(nombre, val);
+		}
+		return val;
 	}
 
 }

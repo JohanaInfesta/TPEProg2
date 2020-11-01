@@ -1,6 +1,5 @@
 package MazoCartas;
 
-import java.util.ArrayList;
 
 public abstract class Pocima {
 	private String nombre;
@@ -12,18 +11,13 @@ public abstract class Pocima {
 		this.valor = valor;
 	}
 
-	public abstract ArrayList<Atributo> addPocima(Carta cartas);
-	
-//	public abstract Atributo addPocima(Atributo atr);
+	public abstract double addPocima(String atr, double val);
 
 	public double getValor() {
 		return valor;
 	}
 	public String getNombre() {
 		return nombre;
-	}
-	public String toString(){
-		return "Pocima " + getNombre();
 	}
 	
 	public boolean equals(Object obj){

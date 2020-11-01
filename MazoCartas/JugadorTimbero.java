@@ -6,12 +6,11 @@ public  class JugadorTimbero extends Jugador {
 		super(nombre);
 	}
 
+	//ELIGE ATRIBUTOS AL AZAR
 	@Override
-	public Atributo elegirAtributo(Carta carta) {
-		int cantAtributos = carta.cantAtributos();
-		int atributoRandom = (int) (Math.random()*cantAtributos );
-		Atributo atributoElegido = carta.atributoPorPosicion(atributoRandom);
-		return atributoElegido;
+	public String elegirAtributo(Carta carta) {
+		int AtributoRandom = (int) Math.random() * carta.cantAtributos();
+        return carta.atributoPorPosicion(AtributoRandom).getNombre();
 	}
 
 }

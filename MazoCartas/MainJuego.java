@@ -15,9 +15,9 @@ public class MainJuego {
 		Pocima p4 = new PocimaReducePorcentaje("Reductor de Plomo", 0.55);
 		Pocima p5 = new PocimaNoImportaAtributo("Quiero vale cuatro", 4.0);
 		Pocima p6 = new PocimaNoImportaAtributo("Número Mágico", 23.0);
-		Pocima p7 = new PocimaSelectiva("Pócima Selectiva Fuerza", 0.35);
-		Pocima p8 = new PocimaSelectiva("Pócima Selectiva Peso", 0.43);
-		PocimaCocktail p9 = new PocimaCocktail("Pócima Cocktail");
+		Pocima p7 = new PocimaSumaPorcentaje("Pócima Selectiva Fuerza", 0.35);
+		Pocima p8 = new PocimaSumaPorcentaje("Pócima Selectiva Peso", 0.43);
+		PocimaCocktail p9 = new PocimaCocktail("Pócima Cocktail ");
 
 		mazo.addPocima(p1);
 		mazo.addPocima(p2);
@@ -29,8 +29,8 @@ public class MainJuego {
 		mazo.addPocima(p8);
 		mazo.addPocima(p9);
 		
-//		p9.addPocimasAlCocktail(p1);
-//		p9.addPocimasAlCocktail(p2);
+		p9.addPocimasAlCocktail(p1);
+		p9.addPocimasAlCocktail(p2);
 		
 		
 		Jugador j1 = new JugadorObstinado ("PEPITO");

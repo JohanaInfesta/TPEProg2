@@ -10,7 +10,7 @@ public class MazoCartas {
 
 	//CONSTRUCTOR
 	public MazoCartas(){
-		cartas = new ArrayList <>();
+		cartas = new ArrayList<>();
 		pocima = new ArrayList<>();
 	}
 
@@ -18,18 +18,16 @@ public class MazoCartas {
 	public void addPocima(Pocima p){
 		pocima.add(p);
 	}
+	public int mazoPocima(){
+		return pocima.size();
+	}
 	public void pocimas(){
 		while(!(pocima.size() >= cartas.size())){
 			pocima.add(null); // el arreglo de pocima tiene el mismo tamaño que cartas
 		}
 		Collections.shuffle(pocima);
 	}
-	public int getPocima(){
-		return pocima.size();
-	}
-//	public void eliminarPocima(){
-//		pocima.remove(0);
-//	}
+	
 	//METODOS
 	public void addCarta(Carta c){
 		if(cartas.isEmpty())
@@ -47,12 +45,12 @@ public class MazoCartas {
 	}
 
 	public void repartirCarta(Jugador jugadorA, Jugador jugadorB){
-		Collections.shuffle(cartas);pocimas(); // mezcla las cartas del mazo
+		Collections.shuffle(cartas); pocimas(); // mezcla las cartas del mazo
 		while(!cartas.isEmpty()){
-			if(pocima.get(0) != null){
-				getPrimeraCarta().agregarPocima(pocima.get(0));
+			if(pocima.size()>0){
+				getPrimeraCarta().setPocima(pocima.get(0));// le asigno una pocima a la primera carta del mazo
+				pocima.remove(0);
 			}
-//			eliminarPocima();
 			jugadorA.agarrarCarta(darCarta());// cuando da la primera carta se elimina automaticamente del mazo con el metodo darCarta
 			if(!cartas.isEmpty()){
 				jugadorB.agarrarCarta(darCarta());
@@ -83,9 +81,6 @@ public class MazoCartas {
 	public Carta getPrimeraCarta(){
 		return getMazo().get(0);
 	}
-	public ArrayList<Pocima> getPocimasTotal(){
-		return  new ArrayList<Pocima>(pocima);	
-		}
 
 	public int getMazoCompleto(){
 		return cartas.size();
