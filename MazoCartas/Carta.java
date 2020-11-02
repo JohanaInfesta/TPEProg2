@@ -2,6 +2,8 @@ package MazoCartas;
 
 import java.util.ArrayList;
 
+import MazoCartas.Pocimas.Pocima;
+
 public class Carta {
 	private String nombre;
 	private ArrayList <Atributo> atributos;

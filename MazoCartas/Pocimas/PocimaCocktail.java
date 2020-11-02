@@ -1,4 +1,4 @@
-package MazoCartas;
+package MazoCartas.Pocimas;
 
 import java.util.ArrayList;
 

@@ -3,6 +3,9 @@ package MazoCartas;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import MazoCartas.Jugador.Jugador;
+import MazoCartas.Pocimas.Pocima;
+
 public class MazoCartas {
 
 	private ArrayList <Carta> cartas;

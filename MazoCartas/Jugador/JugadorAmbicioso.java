@@ -1,4 +1,6 @@
-package MazoCartas;
+package MazoCartas.Jugador;
+
+import MazoCartas.Carta;
 
 public class JugadorAmbicioso extends Jugador {
 

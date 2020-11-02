@@ -1,4 +1,7 @@
-package MazoCartas;
+package MazoCartas.Jugador;
+
+import MazoCartas.Atributo;
+import MazoCartas.Carta;
 
 public  class JugadorTimbero extends Jugador {
 

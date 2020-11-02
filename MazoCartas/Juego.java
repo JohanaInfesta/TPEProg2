@@ -1,5 +1,8 @@
 package MazoCartas;
 
+import MazoCartas.Jugador.Jugador;
+import MazoCartas.Jugador.JugadorObstinado;
+
 public class Juego {
 
 	private MazoCartas mazo;
@@ -19,10 +22,6 @@ public class Juego {
 	}
 	//METODOS
 
-	public boolean finDelJuego(int rondas){
-		return rondas == maxRondas || jugadorA.mazoCartas() == 0 || jugadorB.mazoCartas() == 0;
-	}
-
 	public Jugador asignarTurno(){
 		Jugador ganador;
 		if(jugadorA.esGanador() && !jugadorB.esGanador()){
@@ -40,6 +39,11 @@ public class Juego {
 		}
 		return ganador;
 	}
+	
+	public boolean finDelJuego(int rondas){
+		return rondas == maxRondas+1 || jugadorA.mazoCartas() == 0 || jugadorB.mazoCartas() == 0;
+	}
+	
 	public void jugar(){
 		int ronda = 1;
 		mazo.repartirCarta(jugadorA, jugadorB);

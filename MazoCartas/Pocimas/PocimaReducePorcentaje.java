@@ -1,4 +1,4 @@
-package MazoCartas;
+package MazoCartas.Pocimas;
 
 
 public class PocimaReducePorcentaje extends Pocima {

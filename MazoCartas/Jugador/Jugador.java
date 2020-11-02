@@ -1,4 +1,7 @@
-package MazoCartas;
+package MazoCartas.Jugador;
+
+import MazoCartas.Carta;
+import MazoCartas.MazoCartas;
 
 
 public abstract class Jugador {
