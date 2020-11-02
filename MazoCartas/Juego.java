@@ -52,11 +52,14 @@ public class Juego {
 			String atributoElegido = primerTurno.elegirAtributo(cartaPrimerTurno);
 			Atributo primeraCarta = cartaPrimerTurno.getAtributo(atributoElegido);
 			Atributo segundaCarta = cartaSegundoTurno.mismoAtributo(atributoElegido);
+			
 			// esto se puede poner en otra clase // imprimirResultado();
 			System.out.println("RONDA N°: " + ronda);
 			System.out.println("el jugador : " + primerTurno + " eligio competir con el atributo : " + atributoElegido);
-			System.out.println("La carta de " + primerTurno + " es " + cartaPrimerTurno.getNombre() + " con " + primeraCarta.getValor() + cartaPrimerTurno.aplicarPocima(atributoElegido));
-			System.out.println("La carta de " + segundoTurno + " es " + cartaSegundoTurno.getNombre() + " con " + segundaCarta.getValor() + cartaSegundoTurno.aplicarPocima(atributoElegido));
+			System.out.println("La carta de " + primerTurno + " es " + cartaPrimerTurno.getNombre() + 
+					" con " + primeraCarta.getValor() + cartaPrimerTurno.aplicarPocima(atributoElegido));
+			System.out.println("La carta de " + segundoTurno + " es " + cartaSegundoTurno.getNombre() + 
+					" con " + segundaCarta.getValor() + cartaSegundoTurno.aplicarPocima(atributoElegido));
 			asignarResultado(primerTurno, cartaPrimerTurno, segundoTurno, cartaSegundoTurno, atributoElegido);
 			System.out.println("");
 			ronda ++;

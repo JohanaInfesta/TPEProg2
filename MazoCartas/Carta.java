@@ -96,13 +96,12 @@ public class Carta {
 			Atributo atr = this.getAtributo(nombre);
 			double valor = this.getAddPocima(atr.getNombre(), atr.getValor());
 			if(atr.getValor() == valor){
-				return " ";
+				return "";
 			}else{
 				return " se aplico pocima " + pocima.getNombre() + " valor resultante " + pocima.addPocima(nombre, atr.getValor());
 			}
-		}else{
-			return " ";
 		}
+		return "";
 	}
 
 	public void setPocima(Pocima pocima){

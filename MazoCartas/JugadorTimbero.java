@@ -9,8 +9,10 @@ public  class JugadorTimbero extends Jugador {
 	//ELIGE ATRIBUTOS AL AZAR
 	@Override
 	public String elegirAtributo(Carta carta) {
-		int AtributoRandom = (int) Math.random() * carta.cantAtributos();
-        return carta.atributoPorPosicion(AtributoRandom).getNombre();
+		int cantAtributos = carta.cantAtributos();
+		int AtributoRandom = (int) Math.random() * cantAtributos;
+		Atributo atributoElegido = carta.atributoPorPosicion(AtributoRandom);
+        return atributoElegido.getNombre();
 	}
 
 }
