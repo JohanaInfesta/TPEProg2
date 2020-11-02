@@ -10,7 +10,7 @@ public  class JugadorTimbero extends Jugador {
 	@Override
 	public String elegirAtributo(Carta carta) {
 		int cantAtributos = carta.cantAtributos();
-		int AtributoRandom = (int) Math.random() * cantAtributos;
+		int AtributoRandom = (int) Math.floor(Math.random() * cantAtributos);
 		Atributo atributoElegido = carta.atributoPorPosicion(AtributoRandom);
         return atributoElegido.getNombre();
 	}

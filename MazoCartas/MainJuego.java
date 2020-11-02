@@ -37,7 +37,7 @@ public class MainJuego {
 		p10.addPocimasAlCocktail(p4);
 		
 		
-		Jugador j1 = new JugadorObstinado ("PEPITO");
+		Jugador j1 = new JugadorTimbero ("PEPITO");
 		Jugador j2 = new JugadorObstinado ("JOSE");
 	
 		//mazo - jugador 1 - jugador 2 - cantidad de rondas
