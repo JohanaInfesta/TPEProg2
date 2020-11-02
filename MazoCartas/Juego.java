@@ -56,7 +56,6 @@ public class Juego {
 			String atributoElegido = primerTurno.elegirAtributo(cartaPrimerTurno);
 			Atributo primeraCarta = cartaPrimerTurno.getAtributo(atributoElegido);
 			Atributo segundaCarta = cartaSegundoTurno.mismoAtributo(atributoElegido);
-			
 			// esto se puede poner en otra clase // imprimirResultado();
 			System.out.println("RONDA N°: " + ronda);
 			System.out.println("el jugador : " + primerTurno + " eligio competir con el atributo : " + atributoElegido);

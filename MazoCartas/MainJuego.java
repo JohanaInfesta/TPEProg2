@@ -15,7 +15,7 @@ public class MainJuego {
 
 	public static void main(String[] args) {
 		
-		String mazoJson = "./src/lib/superheroes.json"; 
+		String mazoJson = "./src/lib/autos.json"; 
 		MazoCartas mazo = VisorMazo.cargarMazo(mazoJson);
 		
 		
@@ -26,7 +26,7 @@ public class MainJuego {
 		Pocima p5 = new PocimaNoImportaAtributo("Quiero vale cuatro", 4.0);
 		Pocima p6 = new PocimaNoImportaAtributo("Número Mágico", 23.0);
 		Pocima p7 = new PocimaSelectiva("Pócima Selectiva Fuerza", 0.35);
-		Pocima p8 = new PocimaSelectiva("Pócima Selectiva Fuerza", 0.43);
+		Pocima p8 = new PocimaSelectiva("Pócima Selectiva Peso", 0.43);
 		PocimaCocktail p9 = new PocimaCocktail("Pócima Cocktail incrementa");
 		PocimaCocktail p10 = new PocimaCocktail("Pócima Cocktail reduce ");
 
@@ -51,7 +51,7 @@ public class MainJuego {
 		Jugador j2 = new JugadorObstinado ("JOSE");
 	
 		//mazo - jugador 1 - jugador 2 - cantidad de rondas
-		Juego jugar = new Juego (mazo, j1, j2, 50);
+		Juego jugar = new Juego (mazo, j1, j2, 10);
 		
 		jugar.jugar();
 		
