@@ -8,7 +8,7 @@ public class PocimaSumaPorcentaje extends Pocima {
 
 	@Override
 	public double addPocima(String atr, double val) {
-		double valor = val + val * this.getValor() / 100 ;
+		double valor = val + (val * this.getValor()) ;
 		return valor;
 	}
 }

@@ -47,7 +47,7 @@ public class Juego {
 	public void jugar(){
 		int ronda = 1;
 		mazo.repartirCarta(jugadorA, jugadorB);
-
+		
 		while(!finDelJuego(ronda)){
 			Jugador primerTurno = asignarTurno();
 			Jugador segundoTurno = getPerdedorRonda();
@@ -72,31 +72,30 @@ public class Juego {
 	}
 
 	public void asignarResultado(Jugador primerTurno, Carta cartaPrimerTurno, Jugador segundoTurno, Carta cartaSegundoTurno, String atributoElegido){
-		if(primerTurno.getPrimeraCarta().getValorAtributo(atributoElegido)>segundoTurno.getPrimeraCarta().getValorAtributo(atributoElegido)){
+		Jugador ganador, perdedor;
+		if(primerTurno.getPrimeraCarta().getValorAtributo(atributoElegido) > segundoTurno.getPrimeraCarta().getValorAtributo(atributoElegido)){
 			primerTurno.gana(cartaSegundoTurno);
 			segundoTurno.pierde(cartaSegundoTurno);
-			Jugador ganador = primerTurno;
-			Jugador perdedor = segundoTurno;
+			ganador = primerTurno;
+			perdedor = segundoTurno;
 			primerTurno = asignarTurno();
 			segundoTurno = getPerdedorRonda();
 			System.out.println("Gana la ronda " + ganador + " y le quedan " + ganador.mazoCartas() + " cartas");
-		}else if(segundoTurno.getPrimeraCarta().getValorAtributo(atributoElegido)>primerTurno.getPrimeraCarta().getValorAtributo(atributoElegido)){
+		}else if(segundoTurno.getPrimeraCarta().getValorAtributo(atributoElegido) > primerTurno.getPrimeraCarta().getValorAtributo(atributoElegido)){
 			primerTurno.pierde(cartaPrimerTurno);
 			segundoTurno.gana(cartaPrimerTurno);
-			segundoTurno = primerTurno;
-			Jugador ganador = segundoTurno;
-			Jugador perdedor = primerTurno;
+			ganador = segundoTurno;
+			perdedor = primerTurno;
 			segundoTurno = asignarTurno();
 			primerTurno = getPerdedorRonda();
 			System.out.println("Gana la ronda " + ganador + " y le quedan " + ganador.mazoCartas() + " cartas");
 		}else{
-			primerTurno.agarrarCarta(cartaPrimerTurno);
-			segundoTurno.agarrarCarta(cartaSegundoTurno);
-			Jugador ganador = new JugadorObstinado ("Ninguno");
-			Jugador perdedor = new JugadorObstinado ("Ninguno");
+			primerTurno.empate(cartaPrimerTurno);
+			segundoTurno.empate(cartaSegundoTurno);
+			ganador = new JugadorObstinado ("Ninguno");
+			perdedor = new JugadorObstinado ("Ninguno");
+			System.out.println("Empate");
 		}
-
-
 	}
 
 	//GET - SET 

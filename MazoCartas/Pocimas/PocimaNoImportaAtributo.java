@@ -9,7 +9,6 @@ public class PocimaNoImportaAtributo extends Pocima {
 
 	@Override
 	public double addPocima(String atr, double val) {
-		// TODO Auto-generated method stub
 		return this.getValor();
 	}
 }

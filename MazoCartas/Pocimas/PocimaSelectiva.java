@@ -9,7 +9,7 @@ public class PocimaSelectiva extends Pocima {
 	@Override
 	public double addPocima(String atr, double val) {
 		if(this.getNombre().toLowerCase().contains(atr.toLowerCase())){
-			double valor = val + val * this.getValor() / 100 ;
+			double valor = val + (val * this.getValor()) ;
 			return valor;
 		}
 		return val;

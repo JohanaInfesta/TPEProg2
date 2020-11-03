@@ -40,6 +40,11 @@ public abstract class Jugador {
 		return esGanador;
 	}
 
+	public void empate(Carta carta){
+		cartas.addCarta(carta);
+		cartas.darCarta();
+	}
+	
 	// GET - SET
 	public int mazoCartas(){
 		return cartas.getMazoCompleto();

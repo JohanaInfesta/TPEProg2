@@ -3,6 +3,7 @@ package MazoCartas;
 import MazoCartas.Jugador.Jugador;
 import MazoCartas.Jugador.JugadorObstinado;
 import MazoCartas.Jugador.JugadorTimbero;
+import MazoCartas.Jugador.JugadorAmbicioso;
 import MazoCartas.Pocimas.Pocima;
 import MazoCartas.Pocimas.PocimaCocktail;
 import MazoCartas.Pocimas.PocimaNoImportaAtributo;
@@ -43,15 +44,16 @@ public class MainJuego {
 		
 		p9.addPocimasAlCocktail(p1);
 		p9.addPocimasAlCocktail(p2);
+		
 		p10.addPocimasAlCocktail(p3);
 		p10.addPocimasAlCocktail(p4);
 		
 		
-		Jugador j1 = new JugadorTimbero ("PEPITO");
-		Jugador j2 = new JugadorObstinado ("JOSE");
+		Jugador j1 = new JugadorObstinado ("PEPITO");
+		Jugador j2 = new JugadorTimbero ("JOSE");
 	
 		//mazo - jugador 1 - jugador 2 - cantidad de rondas
-		Juego jugar = new Juego (mazo, j1, j2, 10);
+		Juego jugar = new Juego (mazo, j1, j2, 50);
 		
 		jugar.jugar();
 		
