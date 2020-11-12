@@ -1,13 +1,10 @@
-package MazoCartas.Jugador;
+package MazoCartas.Estrategia;
 
 import MazoCartas.Carta;
 
-public class JugadorAmbicioso extends Jugador {
+public class EstrategiaAmbicioso extends Estrategia {
 
-	public JugadorAmbicioso(String nombre) {
-		super(nombre);
-	}
-	//ATRIBUTO QUE POSEA MAYO VALOR DE SU CARTA
+	//ATRIBUTO QUE POSEA MAYOR VALOR DE SU CARTA
 	@Override
 	public String elegirAtributo(Carta carta) {
 		String atributoElegido = "";

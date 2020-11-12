@@ -1,13 +1,10 @@
-package MazoCartas.Jugador;
+package MazoCartas.Estrategia;
 
 import MazoCartas.Atributo;
 import MazoCartas.Carta;
+import MazoCartas.Jugador;
 
-public  class JugadorTimbero extends Jugador {
-
-	public JugadorTimbero(String nombre) {
-		super(nombre);
-	}
+public  class EstrategiaTimbero extends Estrategia {
 
 	//ELIGE ATRIBUTOS AL AZAR
 	@Override

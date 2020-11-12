@@ -1,9 +1,8 @@
 package MazoCartas;
 
-import MazoCartas.Jugador.Jugador;
-import MazoCartas.Jugador.JugadorObstinado;
-import MazoCartas.Jugador.JugadorTimbero;
-import MazoCartas.Jugador.JugadorAmbicioso;
+import MazoCartas.Estrategia.EstrategiaAmbicioso;
+import MazoCartas.Estrategia.EstrategiaObstinado;
+import MazoCartas.Estrategia.EstrategiaTimbero;
 import MazoCartas.Pocimas.Pocima;
 import MazoCartas.Pocimas.PocimaCocktail;
 import MazoCartas.Pocimas.PocimaNoImportaAtributo;
@@ -19,6 +18,8 @@ public class MainJuego {
 		String mazoJson = "./src/lib/autos.json"; 
 		MazoCartas mazo = VisorMazo.cargarMazo(mazoJson);
 		
+		Jugador j1 = new Jugador ("PEPITO", new EstrategiaTimbero());
+		Jugador j2 = new Jugador ("JOSE", new EstrategiaAmbicioso());
 		
 		Pocima p1 = new PocimaSumaPorcentaje("Fortalecedora", 0.20);
 		Pocima p2 = new PocimaSumaPorcentaje("Fortalecedora Plus", 0.50);
@@ -31,16 +32,6 @@ public class MainJuego {
 		PocimaCocktail p9 = new PocimaCocktail("Pócima Cocktail incrementa");
 		PocimaCocktail p10 = new PocimaCocktail("Pócima Cocktail reduce ");
 
-		mazo.addPocima(p1);
-		mazo.addPocima(p2);
-		mazo.addPocima(p3);
-		mazo.addPocima(p4);
-		mazo.addPocima(p5);
-		mazo.addPocima(p6);
-		mazo.addPocima(p7);
-		mazo.addPocima(p8);
-		mazo.addPocima(p9);
-		mazo.addPocima(p10);
 		
 		p9.addPocimasAlCocktail(p1);
 		p9.addPocimasAlCocktail(p2);
@@ -48,14 +39,22 @@ public class MainJuego {
 		p10.addPocimasAlCocktail(p3);
 		p10.addPocimasAlCocktail(p4);
 		
-		
-		Jugador j1 = new JugadorObstinado ("PEPITO");
-		Jugador j2 = new JugadorTimbero ("JOSE");
-	
-		//mazo - jugador 1 - jugador 2 - cantidad de rondas
 		Juego jugar = new Juego (mazo, j1, j2, 50);
+	
 		
-		jugar.jugar();
+		jugar.addPocima(p1);
+		jugar.addPocima(p2);
+		jugar.addPocima(p3);
+		jugar.addPocima(p4);
+		jugar.addPocima(p5);
+		jugar.addPocima(p6);
+		jugar.addPocima(p7);
+		jugar.addPocima(p8);
+		jugar.addPocima(p9);
+		jugar.addPocima(p10);
+		//mazo - jugador 1 - jugador 2 - cantidad de rondas
+		
+		jugar.iniciarJuego();
 		
 	}
 }

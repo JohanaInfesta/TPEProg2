@@ -25,12 +25,8 @@ public class Carta {
 				i = atributos.size() + 1; //para que no siga recorriendo despues de encontrar el atributo
 			}
 		}
-		return atributo;//tiene que estar inicializada si o si para que realice el return
+		return atributo;
 	}
-
-	public boolean tieneAtributo (Atributo at){
-		return atributos.contains(at);
-	} 
 
 	public boolean tieneAtributo(String nombre){
 		Atributo at = this.getAtributo(nombre);
@@ -46,14 +42,8 @@ public class Carta {
 		return at; //devuelve la posicion del atributo elegido
 	}
 
-	public void addAtributos(String nombre, int valor){
-		if(!tieneAtributo(nombre)){
-			this.atributos.add(new Atributo(nombre, valor));
-		}
-	}
-
 	public void agregarAtributo(Atributo atributo){//metodo creado porque lo pide el VisorMazo
-		if(!tieneAtributo(atributo)){
+		if(!atributos.contains(atributo)){
 			atributos.add(atributo);
 		}
 	}
@@ -68,18 +58,8 @@ public class Carta {
 		return true;
 	}
 
-	public Atributo mismoAtributo(String atributoElegido){ // metodo realizado para imprimir el mismo atributo elegido por el primer jugador
-		Atributo igual = null;
-		for(Atributo atr: atributos){
-			if(atr.getNombre().equals(atributoElegido)){
-				igual = atr;
-				return igual;
-			}
-		}
-		return igual;
-	}
-
 	// 2DA PARTE
+	//TRAE EL VALOR DEL ATRIBUTO ELEGIDO
 	public double getValorAtributo(String atributoElegido){
 		Atributo atr = this.getAtributo(atributoElegido);
 		if(pocima != null){
@@ -88,11 +68,12 @@ public class Carta {
 			return atr.getValor();
 		}
 	}
-
+	//AGREGA LA POCIMA A UN ATRIBUTO ESPECIFICO Y SU VALOR
 	public double getAddPocima(String nombre, double val){
 		return pocima.addPocima(nombre, val);
 	}
 
+	//DEVUELVE EL STRING CON EL VALOR MODIFICADO DEL ATRIBUTO AL QUE SE LE AGREGO LA POCIMA
 	public String aplicarPocima(String nombre){
 		if(pocima != null){
 			Atributo atr = this.getAtributo(nombre);
@@ -115,9 +96,6 @@ public class Carta {
 		return nombre;
 	}
 
-	public ArrayList <Atributo> getAtributos (){
-		return this.atributos;
-	}
 
 	public boolean equals(Object obj) {
 		try {
