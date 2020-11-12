@@ -11,15 +11,16 @@ public abstract class Pocima {
 		this.valor = valor;
 	}
 
-	public abstract double addPocima(String atr, double val);
-
 	public double getValor() {
 		return valor;
 	}
+	
 	public String getNombre() {
 		return nombre;
 	}
 	
+	public abstract double addPocima(String atr, double val);
+		
 	public boolean equals(Object obj){
 		try{
 			Pocima aux = (Pocima)obj;

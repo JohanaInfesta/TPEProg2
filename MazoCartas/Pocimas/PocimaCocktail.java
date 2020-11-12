@@ -23,7 +23,7 @@ public class PocimaCocktail extends Pocima {
 	@Override
 	public double addPocima(String atr, double val) {
 		for(Pocima p:pocimas){
-			val = p.addPocima(nombre, val);
+			val = p.addPocima(atr, val);
 		}
 		return val;
 	}
