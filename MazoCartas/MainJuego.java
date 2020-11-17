@@ -17,9 +17,11 @@ public class MainJuego {
 		
 		String mazoJson = "./src/lib/autos.json"; 
 		MazoCartas mazo = VisorMazo.cargarMazo(mazoJson);
+		//ELIJO UN ATRIBUTO POR POSICION EN EL OBSTINADO
+		EstrategiaObstinado eo = new EstrategiaObstinado(3);
 		
 		Jugador j1 = new Jugador ("PEPITO", new EstrategiaTimbero());
-		Jugador j2 = new Jugador ("JOSE", new EstrategiaAmbicioso());
+		Jugador j2 = new Jugador ("JOSE", eo);
 		
 		Pocima p1 = new PocimaSumaPorcentaje("Fortalecedora", 0.20);
 		Pocima p2 = new PocimaSumaPorcentaje("Fortalecedora Plus", 0.50);
