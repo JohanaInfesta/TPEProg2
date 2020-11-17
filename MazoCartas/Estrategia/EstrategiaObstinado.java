@@ -2,7 +2,7 @@ package MazoCartas.Estrategia;
 
 import MazoCartas.Carta;
 
-public class EstrategiaObstinado extends Estrategia {
+public class EstrategiaObstinado implements Estrategia {
 
 	//SIEMPRE EL MISMO ATRIBUTO EN ESTE CASI YO ELEGI EL QUE ESTA EN LA POS 2 DEL ARREGLO DE ATRIBUTOS DE LA CARTA
 	@Override

@@ -2,7 +2,7 @@ package MazoCartas.Estrategia;
 
 import MazoCartas.Carta;
 
-public class EstrategiaAmbicioso extends Estrategia {
+public class EstrategiaAmbicioso implements Estrategia {
 
 	//ATRIBUTO QUE POSEA MAYOR VALOR DE SU CARTA
 	@Override

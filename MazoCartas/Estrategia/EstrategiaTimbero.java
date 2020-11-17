@@ -2,9 +2,8 @@ package MazoCartas.Estrategia;
 
 import MazoCartas.Atributo;
 import MazoCartas.Carta;
-import MazoCartas.Jugador;
 
-public  class EstrategiaTimbero extends Estrategia {
+public  class EstrategiaTimbero implements Estrategia {
 
 	//ELIGE ATRIBUTOS AL AZAR
 	@Override
