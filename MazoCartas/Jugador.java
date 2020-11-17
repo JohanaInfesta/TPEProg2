@@ -15,9 +15,10 @@ public class Jugador {
 	}
 	//2DA PARTE
 	//ESTRATEGIA IMPLEMENTADA DEPENDIENDO DE QUE TIPO DE JUGADOR SEA
-	public void setEstrategia(Estrategia estrategia){
-		this.estrategia = estrategia;
+	public void setEstrategia(Estrategia nuevaEstrategia){
+		this.estrategia = nuevaEstrategia;
 	}
+	
 	//DEVUELVE EL ATRIBUTO ELEGIDO EN LA ESTRATEGIA
 	public String elegirAtributo(Carta c){
 		return estrategia.elegirAtributo(c);
