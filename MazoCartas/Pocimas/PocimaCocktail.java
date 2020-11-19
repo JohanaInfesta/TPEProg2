@@ -27,5 +27,5 @@ public class PocimaCocktail extends Pocima {
 		}
 		return val;
 	}
-
+	
 }

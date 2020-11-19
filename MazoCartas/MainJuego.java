@@ -37,9 +37,11 @@ public class MainJuego {
 		
 		p9.addPocimasAlCocktail(p1);
 		p9.addPocimasAlCocktail(p2);
+		p9.addPocimasAlCocktail(p7);
 		
 		p10.addPocimasAlCocktail(p3);
 		p10.addPocimasAlCocktail(p4);
+		p10.addPocimasAlCocktail(p7);
 		
 		Juego jugar = new Juego (mazo, j1, j2, 50);
 	
