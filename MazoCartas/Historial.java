@@ -44,6 +44,7 @@ public class Historial {
 		}else{
 			System.out.println("El juego finalizo en empate");
 		}
+		System.out.println("FIN DEL JUEGO");
 	}
 
 }

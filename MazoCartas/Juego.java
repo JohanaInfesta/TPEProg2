@@ -70,7 +70,6 @@ public class Juego {
 		}
 		//IMPRIME EL RESULTADO FINAL DEL JUEGO CON EL GANADOR
 		Historial.finalJuegoResultado(jugadorA, jugadorB);
-		System.out.println("Fin del juego");
 	}
 
 	public void empezarPartida(){
