@@ -68,20 +68,16 @@ public class Juego {
 			empezarPartida();
 			ronda ++;
 		}
-		finalJuegoResultado(ronda);
+		//IMPRIME EL RESULTADO FINAL DEL JUEGO CON EL GANADOR
+		Historial.finalJuegoResultado(jugadorA, jugadorB);
 		System.out.println("Fin del juego");
 	}
 
 	public void empezarPartida(){
 		//ATRIBUTO ELEGIDO POR EL JUGADOR GANADOR
 		String atributoElegido = ganadorRonda.elegirAtributo(ganadorRonda.getPrimeraCarta());
-		System.out.println("el jugador : " + ganadorRonda.getNombre() + " eligio competir con el atributo : " + atributoElegido);
-		//JUGADOR A
-		System.out.println("La carta de " + jugadorA.getNombre() + " es " + jugadorA.getPrimeraCarta().getNombre() + 
-				" con " + jugadorA.getPrimeraCarta().getAtributo(atributoElegido).getValor() + jugadorA.getPrimeraCarta().aplicarPocima(atributoElegido));
-		//JUGADOR B
-		System.out.println("La carta de " + jugadorB.getNombre() + " es " + jugadorB.getPrimeraCarta().getNombre() + 
-				" con " + jugadorB.getPrimeraCarta().getAtributo(atributoElegido).getValor() + jugadorB.getPrimeraCarta().aplicarPocima(atributoElegido));
+		//IMPRIME CADA JUGADA
+		Historial.imprimirJugada(ganadorRonda, jugadorA, jugadorB);
 		enfrentarJugadores(atributoElegido);
 		System.out.println("");
 	}
@@ -90,10 +86,8 @@ public class Juego {
 	public void enfrentarJugadores(String atributoElegido){
 		if(jugadorA.getPrimeraCarta().getValorAtributo(atributoElegido) > jugadorB.getPrimeraCarta().getValorAtributo(atributoElegido)){
 			asignarResultadoRonda(jugadorA, jugadorB);
-			System.out.println("Gana la ronda " + jugadorA.getNombre() + " y le quedan " + jugadorA.mazoCartas() + " cartas");
 		}else if(jugadorB.getPrimeraCarta().getValorAtributo(atributoElegido) > jugadorA.getPrimeraCarta().getValorAtributo(atributoElegido)){
 			asignarResultadoRonda(jugadorB, jugadorA);
-			System.out.println("Gana la ronda " + jugadorB.getNombre() + " y le quedan " + jugadorB.mazoCartas() + " cartas");
 		}else{
 			jugadorA.empate(jugadorA.getPrimeraCarta());
 			jugadorB.empate(jugadorB.getPrimeraCarta());
@@ -106,20 +100,8 @@ public class Juego {
 		ganadorRonda = ganador;
 		ganador.gana(perdedor.getPrimeraCarta());
 		perdedor.pierde(perdedor.getPrimeraCarta());
-
-	}
-	
-	//IMPRIME EL RESULTADO FINAL DEL JUEGO CON EL GANADOR
-	public void finalJuegoResultado(int ronda){
-		System.out.println("------RESULTADO------");
-		if(jugadorA.mazoCartas()>jugadorB.mazoCartas()){
-			System.out.println("El ganador es el jugador " + jugadorA.getNombre());
-		}else if(jugadorB.mazoCartas()>jugadorA.mazoCartas()){
-			System.out.println("El ganado es el jugador " + jugadorB.getNombre());
-		}else{
-			System.out.println("El juego finalizo en empate");
-		}
-	}
+		Historial.imprimirResultadoRonda(ganadorRonda);
+	}	
 	
 	public boolean finDelJuego(int rondas){
 		return rondas == maxRondas+1 || jugadorA.mazoCartas() == 0 || jugadorB.mazoCartas() == 0;
