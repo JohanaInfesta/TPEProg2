@@ -61,11 +61,6 @@ public class Juego {
 	}
 
 
-	public boolean finDelJuego(int rondas){
-		return rondas == maxRondas+1 || jugadorA.mazoCartas() == 0 || jugadorB.mazoCartas() == 0;
-	}
-
-
 	public void jugar(){
 		int ronda = 1;
 		while(!finDelJuego(ronda)){	
@@ -76,7 +71,6 @@ public class Juego {
 		finalJuegoResultado(ronda);
 		System.out.println("Fin del juego");
 	}
-
 
 	public void empezarPartida(){
 		//ATRIBUTO ELEGIDO POR EL JUGADOR GANADOR
@@ -127,6 +121,10 @@ public class Juego {
 		}
 	}
 	
+	public boolean finDelJuego(int rondas){
+		return rondas == maxRondas+1 || jugadorA.mazoCartas() == 0 || jugadorB.mazoCartas() == 0;
+	}
+
 	//GET - SET 
 	public int getMaxRondas(){
 		return maxRondas;

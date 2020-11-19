@@ -18,14 +18,12 @@ public class Carta {
 
 	//METODOS
 	public Atributo getAtributo(String nombreAtributo) {
-		Atributo atributo = null;
 		for(int i = 0; i < atributos.size(); i++) {
 			if(atributos.get(i).getNombre().equals(nombreAtributo)) {
-				atributo = atributos.get(i);
-				i = atributos.size() + 1; //para que no siga recorriendo despues de encontrar el atributo
+				return atributos.get(i);
 			}
 		}
-		return atributo;
+		return null;
 	}
 
 	public boolean tieneAtributo(String nombre){
