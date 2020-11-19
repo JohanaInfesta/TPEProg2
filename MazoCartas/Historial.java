@@ -2,6 +2,7 @@ package MazoCartas;
 
 public class Historial {
 
+	//CLASE IMPLEMENTADA UNICAMENTE PARA IMPRIMIR LOS RESULTADOS DEL JUEGO
 
 	public static void imprimirJugada(Jugador ganadorRonda, Jugador jugadorA,  Jugador jugadorB) {
 
