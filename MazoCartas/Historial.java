@@ -29,7 +29,7 @@ public class Historial {
 
 	public static void imprimirResultadoRonda(Jugador ganadorRonda) {
 		String ganador = ganadorRonda.getNombre();
-		int cantCartas = ganadorRonda.mazoCartas();
+		int cantCartas = ganadorRonda.getMazoCompleto();
 
 		System.out.println("Gana la ronda " + ganador + " y le quedan " + cantCartas + " cartas");
 
@@ -38,9 +38,9 @@ public class Historial {
 	//IMPRIME EL RESULTADO FINAL DEL JUEGO CON EL GANADOR
 	public static void finalJuegoResultado(Jugador jugadorA, Jugador jugadorB) {
 		System.out.println("------RESULTADO------");
-		if(jugadorA.mazoCartas()>jugadorB.mazoCartas()){
+		if(jugadorA.getMazoCompleto()>jugadorB.getMazoCompleto()){
 			System.out.println("El ganador es el jugador " + jugadorA.getNombre());
-		}else if(jugadorB.mazoCartas()>jugadorA.mazoCartas()){
+		}else if(jugadorB.getMazoCompleto()>jugadorA.getMazoCompleto()){
 			System.out.println("El ganado es el jugador " + jugadorB.getNombre());
 		}else{
 			System.out.println("El juego finalizo en empate");

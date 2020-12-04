@@ -1,7 +1,6 @@
 package MazoCartas;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import MazoCartas.Pocimas.Pocima;
 
 public class Juego {
@@ -27,16 +26,6 @@ public class Juego {
 	public void addPocima(Pocima p){
 		pocima.add(p);
 	}
-	public int mazoPocima(){
-		return pocima.size();
-	}
-	public void pocimas(){
-		while(!(pocima.size() >= mazo.size())){
-			pocima.add(null); // el arreglo de pocima tiene el mismo tamaño que cartas
-		}
-		Collections.shuffle(pocima);
-	}
-
 
 	//METODOS
 	public void iniciarJuego(){
@@ -46,7 +35,6 @@ public class Juego {
 	//REPARTE LAS CARTAS EN EL JUEGO PARA QUE LAS POCIMAS LAS PODAMOS AGREGAR EN LAS CARTAS Y NO ESTEN EN EL MAZO DE CARTAS
 	public void repartirCartas(){
 		mazo.mezclar();
-		pocimas(); //mezclo el arreglo de pocimas
 		while(!mazo.esVacio()){
 			if(pocima.size()>0){
 				Carta primeraCarta = mazo.getPrimeraCarta();
@@ -58,6 +46,8 @@ public class Juego {
 				jugadorB.agarrarCarta(mazo.eliminarPrimeraCarta());
 			}
 		}
+		jugadorA.mezclarMazo();
+		jugadorB.mezclarMazo();
 	}
 
 
@@ -65,33 +55,27 @@ public class Juego {
 		int ronda = 1;
 		while(!finDelJuego(ronda)){	
 			System.out.println("RONDA N°: " + ronda);
-			empezarPartida();
+			enfrentarJugadores();
 			ronda ++;
 		}
 		//IMPRIME EL RESULTADO FINAL DEL JUEGO CON EL GANADOR
 		Historial.finalJuegoResultado(jugadorA, jugadorB);
 	}
 
-	public void empezarPartida(){
-		//ATRIBUTO ELEGIDO POR EL JUGADOR GANADOR
-		String atributoElegido = ganadorRonda.elegirAtributo(ganadorRonda.getPrimeraCarta());
-		//IMPRIME CADA JUGADA
-		Historial.imprimirJugada(ganadorRonda, jugadorA, jugadorB);
-		enfrentarJugadores(atributoElegido);
-		System.out.println("");
-	}
-
 	//COMPARA LOS VALORES DE LAS CARTAS DE CADA JUGADOR
-	public void enfrentarJugadores(String atributoElegido){
-		if(jugadorA.getPrimeraCarta().getValorAtributo(atributoElegido) > jugadorB.getPrimeraCarta().getValorAtributo(atributoElegido)){
-			asignarResultadoRonda(jugadorA, jugadorB);
-		}else if(jugadorB.getPrimeraCarta().getValorAtributo(atributoElegido) > jugadorA.getPrimeraCarta().getValorAtributo(atributoElegido)){
+	public void enfrentarJugadores(){
+		Historial.imprimirJugada(ganadorRonda, jugadorA, jugadorB);
+		
+		if(jugadorA.enfrentraAtributo(jugadorB) != null){
 			asignarResultadoRonda(jugadorB, jugadorA);
+		}else if(jugadorB.enfrentraAtributo(jugadorA) != null){
+			asignarResultadoRonda(jugadorA, jugadorB);
 		}else{
 			jugadorA.empate(jugadorA.getPrimeraCarta());
 			jugadorB.empate(jugadorB.getPrimeraCarta());
 			System.out.println("Empate");
 		}
+		System.out.println("");
 	}
 
 	//ASIGNA AL GANADOR RONDA Y ES EL QUE ELIGE EL ATRIBUTO
@@ -103,7 +87,7 @@ public class Juego {
 	}	
 	
 	public boolean finDelJuego(int rondas){
-		return rondas == maxRondas+1 || jugadorA.mazoCartas() == 0 || jugadorB.mazoCartas() == 0;
+		return rondas == maxRondas+1 || jugadorA.getMazoCompleto() == 0 || jugadorB.getMazoCompleto() == 0;
 	}
 
 	//GET - SET 

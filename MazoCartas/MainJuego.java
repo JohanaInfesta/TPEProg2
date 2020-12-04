@@ -1,6 +1,6 @@
 package MazoCartas;
 
-import MazoCartas.Estrategia.EstrategiaAmbicioso;
+import MazoCartas.Estrategia.Estrategia;
 import MazoCartas.Estrategia.EstrategiaObstinado;
 import MazoCartas.Estrategia.EstrategiaTimbero;
 import MazoCartas.Pocimas.Pocima;
@@ -18,7 +18,7 @@ public class MainJuego {
 		String mazoJson = "./src/lib/autos.json"; 
 		MazoCartas mazo = VisorMazo.cargarMazo(mazoJson);
 		//ELIJO UN ATRIBUTO POR POSICION EN EL OBSTINADO
-		EstrategiaObstinado eo = new EstrategiaObstinado(3);
+		Estrategia eo = new EstrategiaObstinado(3);
 		
 		Jugador j1 = new Jugador ("PEPITO", new EstrategiaTimbero());
 		Jugador j2 = new Jugador ("JOSE", eo);
